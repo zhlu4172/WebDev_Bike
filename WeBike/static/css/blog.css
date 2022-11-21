@@ -1,0 +1,297 @@
+.container{
+    width: 70%;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 10%;
+}
+
+.container .heading{
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.container .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+.container .box-container .box{
+    background-color: white;
+    color: black;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    display: none;
+}
+
+.container .box-container .box:nth-child(1),
+.container .box-container .box:nth-child(2),
+.container .box-container .box:nth-child(3),
+.container .box-container .box:nth-child(4),
+.container .box-container .box:nth-child(5),
+.container .box-container .box:nth-child(6){
+    display: inline-block;
+}
+
+.container .box-container .box .image{
+    margin-bottom: 20px;
+    overflow: hidden;
+    height: 250px;
+    border-radius: 5px;
+}
+
+.container .box-container .box .image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.container .box-container .box:hover .image img{
+    transform: scale(1.1);
+    box-shadow: 0 5px 10px rgba(0,0,0,1);
+}
+
+.container .box-container .box .content{
+    margin-bottom: 0px;
+}
+
+.container .box-container .box .content h2{
+    font-size: 20px;
+}
+
+.container .box-container .box .content p{
+    font-size: 16px;
+    line-height: 2;
+    padding: 15px 0;
+    overflow: hidden;
+    max-height: 100px;
+}
+
+.container .box-container .box .content .btn{
+    background-color: rgb(28, 47, 64);
+    color: white;
+    display: inline-block;
+    padding: 10px 30px;
+    border: 1px solid white;
+    font-size: 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-bottom: 0px;
+}
+
+.container .box-container .box .content .btn:hover{
+    background-color: rgb(45, 184, 197);
+    border-color: rgb(45, 184, 197);
+}
+
+#load-more{
+    margin-top: 40px;
+    display: inline-block;
+    padding: 10px 30px;
+    /* border: 1px solid black; */
+    color: white;
+    font-size: 16px;
+    background-color: rgb(28, 47, 64);
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+#load-more:hover{
+    background-color: rgb(45, 184, 197);
+}
+
+.suggestions-button {
+    background-color: rgb(45, 184, 197);
+    color: black;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.7;
+    position: fixed;
+    bottom: 2%;
+    right: 2%;
+    width: 15%;
+    border-radius: 12px;
+}
+  
+.suggestions-box {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+}
+  
+.form-container {
+    background-color: rgb(45, 184, 197);
+    max-width: 300px;
+    padding: 10px;
+}
+  
+.form-container textarea {
+    width: 90%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: white;
+    resize: none;
+    min-height: 200px;
+}
+  
+.form-container textarea:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+.form-container .btn {
+    background-color: rgb(28, 47, 64);
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+}
+  
+.form-container .btn:hover {
+    opacity: 1;
+}
+/* .form-container .cancel {
+    background-color: rgb(28, 47, 64);
+} */
+  
+.suggestions-button:hover {
+    opacity: 1;
+    animation: shake 0.5s;
+}
+
+.admin-blog {
+    display: none;
+    top: 5%;
+    bottom: 25%;
+    left: 12.5%;
+    width: 75%;
+    background-color: rgb(28, 47, 64);
+    position: sticky;
+    max-height: 500px;
+    overflow-y: scroll;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+#admin-image{
+    margin-top: 25px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 400px;
+}
+
+#admin-heading{
+    font-size: 40px;
+    text-align: center;
+    color: white;
+    margin-bottom: 25px;
+}
+
+/* #admin-text{
+    font-size: 18px;
+    text-align: left;
+    color: white; 
+    margin-bottom: 200px;
+    margin-left: 25px;
+    margin-right: 25px;
+} */
+
+#body-blur{
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);   
+}
+
+#admin-button-close{
+    background-color: red;
+    color: white;
+    padding: 10px 30px;
+    border: 1px solid white;
+    font-size: 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    float: right;
+    margin: 10px;
+    opacity: 0.8;
+}
+
+#admin-button-close:hover{
+    opacity: 1;
+}
+
+#pre-format{
+    font-size: 18px;
+    text-align: left;
+    color: white; 
+    margin-bottom: 50px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+#container{
+}
+
+.edit_blog_section {
+    cursor: default;
+    background: #FFFFFF;
+    border-radius: 22px;
+    border: 1px solid;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    z-index: 3;
+    color: #1C2F40;
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+    box-shadow: 0px 0px 5px 5px rgba(75, 75, 75, 0.36);
+}
+
+.open_edit_blog_section {
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.edit_blog_section_button {
+    float: right;
+    margin: 10px;
+}
+
+
+
+
+
+  /* @keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  } */
+
+
+
+
+  /* References: 
+  https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_popup_chat
+  https://www.youtube.com/watch?v=4UZdSp9PMI4&ab_channel=Mr.WebDesigner
+  */

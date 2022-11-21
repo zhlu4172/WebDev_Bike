@@ -1,0 +1,283 @@
+* {
+  font-family: Market Sans, Arial, sans-serif;
+}
+.product_body {
+  margin: 50px;
+  display: flex;
+}
+.checkbox__left {
+  flex: 20%;
+}
+
+.products__right {
+  flex: 80%;
+}
+
+.checkbox_title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.checkbox-group {
+  margin-bottom: 20px;
+}
+
+.checked {
+  color: orange;
+}
+
+.unchecked {
+  color: #808080;
+}
+
+.rating-five-star {
+  font-size: 25px;
+  /* margin-bottom: 20px; */
+}
+
+.form-check-input {
+  width: 1em;
+  height: 1em;
+  margin-top: 0.65em;
+  margin-right: 0.2em;
+  vertical-align: top;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-print-color-adjust: exact;
+  color-adjust: exact;
+  print-color-adjust: exact;
+  border-radius: 0.25em;
+}
+
+.bike-list {
+  /* background-color: #f7f7f7; */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-rows: repeat(2, 1fr);
+  /* grid-column-gap: 10px;
+  grid-row-gap: 30px; */
+}
+
+.bike-card {
+  position: relative;
+  cursor: pointer;
+  padding: 30px;
+  border-radius: 20px;
+  /* background-color: #f7f7f7; */
+}
+
+.bike-card:hover {
+  box-shadow: 0px 0px 5px 5px rgba(117, 117, 117, 0.53);
+}
+
+.sold_out {
+  position: absolute;
+  z-index: 1;
+  background-color: #1C2F40;
+  color: white;
+  width: 100%;
+  text-align: center;
+}
+
+.fake_bike_pic {
+  overflow: hidden;
+  height: 220px;
+  background: transparent;
+  
+}
+
+.delete_product {
+  position: relative;
+  margin-top: 10px;
+  margin-left: 55px;
+  width: 42px;
+  height: 40px;
+  border: none;
+  background: transparent;
+}
+
+.delete-image {
+  position: relative;
+  width: 28px;
+  height: 30px;
+}
+
+.bike-pic {
+  position: relative;
+  border: 0.5px solid rgb(128 128 128);
+  border-radius: 5px;
+  height: 220px;
+  min-width: 220px;
+  overflow: hidden;
+  align-items: center;
+}
+
+.order {
+  width: 100%;
+  background-color: #54b175;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.bike-ranting {
+  float: right;
+}
+.distance {
+  float: right;
+}
+
+.rent-price {
+  flex: 30%;
+  /* float: right; */
+}
+
+.sell-price {
+  /* flex: 30%; */
+  /* float: left; */
+  /* font-weight: bold; */
+}
+
+.bike-name {
+  font-weight: bold;
+}
+
+.price-distance {
+  display: block;
+  margin-top: 20px;
+}
+
+.discription {
+  margin-top: 10px;
+  height: 50px;
+  overflow: hidden;
+}
+
+.pagination_section {
+  position: relative;
+  float: right;
+  margin-top: 20px;
+}
+
+/* pagination styling */
+.pagination_section a {
+  color: black;
+  padding: 10px 18px;
+  text-decoration: none;
+}
+
+/* pagination hover effect on non-active */
+.pagination_section a:hover:not(.active) {
+  background-color: #031f3b;
+  color: white;
+}
+
+/* pagination hover effect on active*/
+
+.pagination_section a:nth-child(5) {
+  background-color: green;
+  color: white;
+}
+
+.pagination_section a:nth-child(1) {
+  font-weight: bold;
+}
+
+.pagination_section a:nth-child(7) {
+  font-weight: bold;
+}
+
+.content {
+  margin: 50px;
+  padding: 15px;
+  width: 700px;
+  height: 220px;
+  border: 2px solid black;
+}
+
+.star-span > .form-check-input {
+  width: 1em;
+  height: 1em;
+  margin-top: 0.65em;
+  margin-right: 0.2em;
+  vertical-align: top;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-print-color-adjust: exact;
+  color-adjust: exact;
+  print-color-adjust: exact;
+  border-radius: 0.25em;
+}
+
+.left_search {
+  margin-bottom: 10px;
+}
+
+.stars-outer {
+  float: right;
+  text-align: right;
+  display: inline-block;
+  position: relative;
+  font-family: FontAwesome;
+  color: #f8ce0b;
+}
+.stars-outer::before {
+  content: "\f006 \f006 \f006 \f006 \f006";
+}
+
+.stars-inner,
+#value {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  font-family: FontAwesome;
+  width: 0;
+  visibility: visible;
+}
+
+.stars-inner::before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  color: #f8ce0b;
+}
+
+#value1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+}
+
+#value2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+}
+
+.distance {
+  float: right;
+}
+
+
+.place {
+  display: none;
+}

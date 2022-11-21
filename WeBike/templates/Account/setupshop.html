@@ -1,0 +1,101 @@
+{% extends "../base.html" %}
+{% load static %}
+{% block content %}
+    <!DOCTYPE html>
+
+    <html>
+
+    <head>
+
+        <meta charset="UTF-8" />
+        <title>Setup Your Shop</title>
+        <link rel="stylesheet" href="{% static 'css/setupshop.css' %}" />
+    </head>
+    <body>
+        {% comment %} <div class="header-display">
+        <img id="header-preview" alt="" width="100%" height="100%" />
+        </div> {% endcomment %}
+
+        <div class=details>
+            <form method="POST" class="details-form" action = "{% url 'setupshop' %}" 
+                onsubmit="setupShop({{ abns|safe }})" enctype="multipart/form-data">{% csrf_token %}
+                <div class="shop-details">
+
+                    <div class="header-display" onclick="clickHeaderUpload()">
+                        <img id="header-preview" alt="" width="100%" height="100%"/>
+                    </div>
+                        
+                    <label for="upload_header" class="custom_upload_header" id="header_id" > 
+                        <img id="cloud" src="https://amtech3d.com/wp-content/uploads/2018/08/upload-icon-20606.png" width="140" 
+                        height="100"/> <br>
+                        Upload your header
+                    </label>
+
+                    <input id="upload_header" type="file" name="header_img" accept="image/png, image/jpeg" 
+                    onchange="headerOnChange(this.files)" style="width: 4000px" >
+
+                    <label for="upload_logo" class="custom_upload_logo" id="logo_id"> 
+                        <img id="logo-preview" width="168" height="168"/> <br>
+                        Upload your logo
+                    </label>
+                    <input id="upload_logo" type="file" id="logo" name="logo" accept="image/png, image/jpeg" 
+                    onchange="logoOnChange(this.files)">
+                    
+                    <b><h3 id="contact_head">Contact Details</h3></b>
+                    <label id="phone_label" for="phone">Phone Number:</label>
+                    <input type="text" id="phone" name="phone" pattern="^\({0,1}((0|\+61)(2|4|3|7|8)){0,1}\){0,1}( |-){0,1}[0-9]{2}( |-){0,1}[0-9]{2}( |-){0,1}[0-9]{1}( |-){0,1}[0-9]{3}$" required><br><br>
+
+                    <label id="email_label" for="email">Email:</label>
+                    <input type="email" id="email" name="email" required><br><br>
+
+                    <label id="location_label" for="location">Location:</label>
+                    <input type="text" id="location" name="location" required><br><br>
+
+                    <label id="url_label" for="url">Website URL:</label>
+                    <input type="url" id="url" name="url">
+
+                    <b><h3 id="description_head">Company Description</h3></b>
+                    <label id="name_label" for="shop_name">Shop Name:</label>
+                    <input type="text" id="shop_name" name="shop_name" required><br><br>
+
+                    <textarea id="description" name="description" rows="13" cols="50" placeholder="Company Description..."></textarea>
+                    <b><h3 id="ABN_verify">Verify Your Business</h3></b>
+                    <label id="ABN_label" for="abn">ABN:</label>
+                    <input type="text" id="abn" name="abn" required>
+                    <br>
+                    <br>
+                    <input type="checkbox" id="detail-confirm" name="detail-confirm" value="confirm">
+                    <label for="detail-confirm"> I confirm my provided details are accurate</label>
+                    <br>
+                    <div id="err"></div>
+                    <input type="submit" value="Save and Create" class="submit-btn">
+                </div>
+            </form>
+        </div>
+        <!--abn error msg-->
+        <div id="error_menu" class="error_menu">
+            <span onclick="document.getElementById('error_menu').style.display='none'"
+            class="close" title="Close Error Menu">&times;</span>
+            <div class="error_menu_content animate">
+                <header>
+                    <h4>!YOUR ABN HAS BEEN REGISTERED!</h4>
+                    <a href="{% url 'contact_us' %}">contact us</a>
+                </header>
+            </div>
+            <script>
+                // Get the modal
+                var modal = document.getElementById('error_menu');
+                // When the user clicks anywhere outside the modal, close it
+                window.onclick = function(event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+            </script>
+         </div>
+
+    </body>
+
+    </html>
+    <script src="{% static 'js/setupshop.js' %}"></script>
+{% endblock %}

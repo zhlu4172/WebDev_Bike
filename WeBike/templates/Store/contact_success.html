@@ -1,0 +1,65 @@
+{% extends "../base.html" %}
+{% load static %}
+
+{% block content %}
+
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="{% static 'css/contactus.css' %}">
+
+    <div class="Container">
+
+        <div class="Left_Side_Div">
+            <h1 id="Left_Heading">Thank You</h1>
+            <p id="Left_Text">We have received your message.</p>
+            <p id="Left_Text">We will be in contact with you shortly.</p>
+            <input id="submitBtn" type="submit" value="Submit feedback again" onclick="location.href = {% url 'contact_us' %}">
+
+        </div>
+
+
+        <div class="Right_Side_Div">
+
+            <div class="Image_Div">
+                <img class="Bike_Image" src="{% static 'images/Long_Bike_Image.jpg' %}">
+            </div>
+
+            <div class="Text_Div">
+                <div class="Layer">
+                    <div class="Left_top">
+                        <img class="Icon" src="{% static 'images/Map_Icon.png' %}">
+                    </div>
+
+                    <div class="Right_top">
+                        <p id="Contact_Info">
+                            <a href="https://maps.google.com/?q=the+university+of+sydney" target="_blank" style="text-decoration: none">
+                                The University of Sydney, Camperdown, Sydney</a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="Layer">
+                    <div class="Left_mid">
+                        <img class="Icon" src="{% static 'images/Email_Icon.png' %}">
+                    </div>
+                    <div class="Right_mid">
+                        <p id="Contact_Info">
+                            <a href="mailto:WEBIKEmail" style="text-decoration: none">Webike@gmail.com</a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="Layer">
+                    <div class="Left_bottom">
+                        <img class="Icon" src="{% static 'images/Phone_Icon.png' %}">
+                    </div>
+                    <div class="Right_bottom">
+                        <p id="Contact_Info">602-216-4143</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+

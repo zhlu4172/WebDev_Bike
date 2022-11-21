@@ -1,0 +1,281 @@
+.avatar {
+    background-color: #1C2F40;
+    height: 200px;
+    text-align:center;
+    vertical-align: middle;
+}
+
+.avatar img {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 150px 100px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.avatar_menu {
+    position: relative;
+    margin-bottom: 10px;
+    margin-right: 100px;
+}
+
+.avatar_menu_info {
+    font-family: Arial, serif;
+    text-decoration: none;
+    display: inline-block;
+    margin-left: 300px;
+}
+
+.avatar_menu_info h1 {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.avatar_menu_info h2 {
+    display: inline-block;
+    margin-right: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #8c8c8c;
+}
+
+.avatar_menu_buttons {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    float: right;
+}
+
+.avatar_menu button {
+    float: right;
+    margin-inline: 10px;
+    width: 100px;
+    height: 40px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.avatar_menu button:hover {
+    background-color: rgb(45, 184, 197);
+    transition: 0.5s;
+}
+
+.edit_menu {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+    font-family: "Rajdhani" ,"Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+}
+
+.edit_content {
+    text-align: center;
+    box-shadow: 0px 10px 10px rgba(54, 54, 54, 0.84);
+    background-color: #fefefe;
+    margin: auto; /* 15% from the top and centered */
+    width: 30%; /* Could be more or less, depending on screen size */
+}
+
+.edit_content label,
+.edit_content input {
+    font-family: "Rajdhani" ,"Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(48, 48, 48);
+    vertical-align: center;
+    text-decoration: none;
+    margin-top: 10px;
+    margin-inline: 10px;
+}
+
+.edit_content label {
+    float: left;
+}
+
+.edit_content input::placeholder {
+    opacity: 0.5;
+}
+
+.edit_content input {
+    width: 60%;
+    float: right;
+}
+
+.edit_content button {
+    margin: 10px;
+    font-weight: bold;
+    width: 90%;
+    height: 40px;
+    border-radius: 10px;
+}
+
+.edit_content button:hover {
+    background-color: rgb(45, 184, 197);
+    transition: 0.5s;
+}
+
+.edit_content header {
+    background-color: #e5e5e5;
+    height: 50px;
+    width: 100%;
+}
+
+.edit_content header h4 {
+    position: absolute;
+    margin: 10px;
+}
+
+.tab_menu {
+    margin-inline: 100px;
+    overflow: hidden;
+}
+
+.tab_menu button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    width: 150px;
+}
+
+.tab_menu button:hover,
+.tab_menu button.active {
+    background-color: rgb(45, 184, 197);
+}
+
+.info_section {
+    margin-inline: 100px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: rgb(239, 240, 243);
+}
+
+.reviews {
+    padding: 10px 0px;
+}
+
+.reviews h2 {
+    font-family: Arial, serif;
+    font-size: 22px;
+    font-weight: bold;
+    color: rgb(48, 48, 48);
+    text-decoration: none;
+    margin-inline: 30px;
+}
+
+/* Feedback */
+
+.Feedback1{
+    margin: 10px;
+    background-color: #FFFFFF;
+    width: 400px;
+    height: 250px;
+    outline: 1px solid #E7EAEC;
+    display:inline-block;
+    margin-left:30px;
+    vertical-align: bottom;
+}
+
+.profile1{
+    margin: 0px;
+    background-color: lightblue;
+    width: 70px;
+    height: 70px;
+    margin:25px 25px 0px 25px;
+    position: relative;
+    background-image: url('https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png');
+    background-size: 70px;
+}
+
+#reviewer_picture{
+    margin: 0px;
+    width: 70px;
+    height: 70px;
+    margin:25px 25px 0px 25px;
+    position: relative;
+    background-size: 70px;
+}
+  
+.Review_Comment{
+    font-family: 'Roboto', sans-serif;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top:-10px;
+    margin-bottom:10px;
+    word-wrap    : break-word;
+    overflow-wrap: break-word;
+}
+  
+.Reviewer{
+    font-family: 'Roboto', sans-serif;
+    margin-left:25px;
+    margin-top:13px;
+}
+  
+html {
+    scroll-behavior: smooth !important;
+}
+
+.stars-outer { 
+    margin-left:280px;
+    text-align:right;
+    display: inline-block;
+    position: relative;
+    font-family: FontAwesome;
+    color:#f8ce0b;
+}
+
+.stars-outer::before {
+    content: "\f006 \f006 \f006 \f006 \f006";
+}
+
+.stars-inner, #value {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    visibility:visible;
+}
+
+#value1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+}
+
+#value2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+}
+
+.stars-inner::before {
+    content: "\f005 \f005 \f005 \f005 \f005";
+    color: #f8ce0b;
+}
+
+#no-reviews{
+    font-family: 'Roboto', sans-serif;
+    margin-left:30px;
+    margin-top:100px;
+}

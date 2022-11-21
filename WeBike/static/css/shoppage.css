@@ -1,0 +1,747 @@
+body {
+  font-family: "Rajdhani", "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+}
+
+body {
+  color: black;
+}
+
+.logo_banner {
+  overflow: hidden;
+  background-color: #f7f7f7;
+}
+
+.logo_banner a {
+  text-align: center;
+  display: inline-block;
+}
+
+.logo_banner button {
+  margin-top: 220px;
+  margin-left: 58%;
+  position: relative;
+}
+
+.shop_logo {
+  /* background: url("../images/fake_shop_pic.png"); */
+  background-size: 100%;
+  position: relative;
+  left: 10%;
+  /* margin-left:20px; */
+  margin-top: 30px;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+}
+
+.banner_shop_info {
+  width: 70%;
+  float: right;
+  display: block;
+  background: transparent;
+  margin-top: 10px;
+}
+
+.all_info,
+.all_info__right,
+.forms,
+.forms__right {
+  background-color: rgb(255, 255, 255);
+  float: left;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  background-color: transparent;
+}
+
+.inline_info {
+  display: block;
+}
+
+.info_name {
+  font-weight: bolder;
+}
+
+.shop_products {
+  margin-top: 50px;
+  margin-bottom: 150px;
+  margin-left: 50px;
+  margin-right: 50px;
+  /* display: block; */
+}
+
+.each_bike {
+  padding: 2%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+}
+
+.bicycles {
+  width: 150px;
+}
+
+#edit {
+  margin-left: 50px;
+  background-color: rgb(33, 189, 198);
+  font-size: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-radius: 20px;
+}
+
+#buttons {
+  display: inline-block;
+  margin-top: 20px;
+}
+
+#save {
+  margin-left: 50px;
+  background-color: rgb(33, 189, 198);
+  font-size: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-radius: 20px;
+}
+
+#cancel {
+  margin-left: 50px;
+  background-color: rgb(255, 255, 255);
+  font-size: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-radius: 20px;
+}
+
+.shop-info {
+  /* display: flex; */
+  justify-content: space-between;
+  gap: 50px;
+  align-items: flex-start;
+  /* margin: 50px; */
+}
+
+.all_info {
+  width: 95%;
+}
+
+.forms {
+  width: 100%;
+}
+
+.info-banner {
+  height: 200px;
+  display: flex;
+  padding-right: 50px;
+  /* margin: 50px; */
+}
+
+.banner-shop-info__left {
+  flex: 20%;
+  overflow: hidden;
+}
+
+.banner-shop-info__middle {
+  flex: 40%;
+  overflow: hidden;
+}
+
+.banner-shop-info__right {
+  flex: 40%;
+  overflow: hidden;
+}
+.shop-info__left {
+  flex: 30%;
+  box-shadow: 5px 5px 10px 2px rgb(28 47 64 / 80%);
+  /* border: 1px solid black; */
+  border-radius: 30px;
+  padding: 50px;
+  height: 550px;
+  overflow: hidden;
+}
+
+.shop-info__right {
+  flex: 60%;
+  /* border: 1px solid black; */
+  box-shadow: 5px 5px 10px 2px rgb(28 47 64 / 80%);
+  border-radius: 30px;
+  padding: 50px;
+  height: 550px;
+  overflow: hidden;
+}
+
+.bike_list {
+  height: 700px;
+  overflow: hidden;
+  padding-right: 50px;
+  padding-bottom: 50px;
+  /* background-color: #f7f7f7; */
+}
+
+.each_bike {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  /* padding-right: 50px;  */
+  /* box-sizing: content-box;  */
+  background-color: #f7f7f7;
+}
+
+.each_bike {
+  background-color: #f7f7f7;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+}
+
+.bike-card {
+  padding: 20px;
+  border-radius: 20px;
+  background-color: #f7f7f7;
+}
+
+.shop_products_form {
+  height: 700px;
+  overflow-y: scroll;
+}
+
+#product_form {
+  background: #f7f7f7;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+#product_form > div {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 50px;
+  grid-row-gap: 50px;
+}
+
+#buttons {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+
+#buttons button {
+  margin-right: 50px;
+  margin-bottom: 50px;
+}
+
+#avater-input {
+  position: absolute;
+  /* width: 100px; */
+  left: 200px;
+  margin-top: 10px;
+}
+
+.form-input {
+  border-radius: 4px;
+  /* border-color: rgb(28 47 64); */
+  border: 0.5px solid rgb(128 128 128);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: auto;
+}
+
+.bike_info_input_container > .form-input {
+  width: 99%;
+}
+
+.delete_product{
+  position: relative;
+  margin-top: 5px;
+  /* margin-left: 55px; */
+  /* width: 42px; */
+  /* height: 40px; */
+  border: none;
+  background: transparent;
+}
+
+.delete_product:hover{
+  cursor: pointer;
+
+}
+
+.status_button{
+  position: relative;
+  margin-top: 9px;
+  /* margin-left: 55px; */
+  /* width: 42px; */
+  /* height: 40px; */
+  border: none;
+  background: transparent;
+}
+
+.delete-image {
+  position: relative;
+  width: 28px;
+  height: 30px;
+}
+
+
+/* Feedback */
+
+.reviews {
+  margin: 50px 30px;
+}
+
+.Feedback1{
+  margin: 10px;
+  background-color: #FFFFFF;
+  width: 400px;
+  height: 250px;
+  outline: 1px solid #E7EAEC;
+  display:inline-block;
+  margin-right:30px;
+  vertical-align: bottom;
+}
+
+.profile1{
+  margin: 0px;
+  background-color: lightblue;
+  width: 70px;
+  height: 70px;
+  margin:25px 25px 0px 25px;
+  position: relative;
+  background-image: url('https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png');
+  background-size: 70px;
+}
+
+#reviewer_picture{
+  margin: 0px;
+  width: 70px;
+  height: 70px;
+  margin:25px 25px 0px 25px;
+  position: relative;
+  background-size: 70px;
+}
+
+.Review_Comment{
+  font-family: 'Roboto', sans-serif;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-top:-10px;
+  margin-bottom:10px;
+  word-wrap    : break-word;
+  overflow-wrap: break-word;
+}
+
+.Reviewer{
+  font-family: 'Roboto', sans-serif;
+  margin-left:25px;
+  margin-top:13px;
+}
+
+html {
+  scroll-behavior: smooth !important;
+}
+
+.stars-outer { 
+  margin-left:280px;
+  text-align:right;
+  display: inline-block;
+  position: relative;
+  font-family: FontAwesome;
+  color:#f8ce0b;
+}
+
+.stars-outer::before {
+  content: "\f006 \f006 \f006 \f006 \f006";
+}
+
+.stars-inner, #value {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  visibility:visible;
+}
+
+#value1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+}
+
+#value2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+}
+
+.stars-inner::before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  color: #f8ce0b;
+}
+
+#no-reviews{
+  font-family: 'Roboto', sans-serif;
+  margin-left:30px;
+  margin-top: 100px;
+}
+
+.shop_pic {
+  /* background: url("../images/Bike_Garage.jpg"); */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  max-height: 350px;
+  align-items: center;
+  overflow: hidden;
+}
+
+#shop-pic-img {
+  width: 100%;
+  /* height: 100%; */
+}
+
+.contents {
+  margin-left: 100px;
+  margin-right: 100px;
+  /* margin-top: 50px; */
+  margin-bottom: 5px;
+  display: block;
+}
+
+/* .reviews h1 {
+  margin: 50px;
+} */
+
+.fake_bike_pic {
+  /* height: 100%;
+  width: 100%; */
+  object-fit: contain;
+  height: 250px;
+  background: transparent;
+  /* background: transparent; */
+}
+
+.product {
+  padding: 5%;
+  border-radius: 20px;
+  background-color: #f7f7f7;
+}
+
+.selectColor {
+  /* position: absolute; */
+  padding: 10px;
+  border-radius: 10px;
+  width: 150px;
+  /* float: right; */
+  /* display: block; */
+}
+
+.shop-title {
+  font-size: 2em;
+  font-weight: bolder;
+  margin-top: 10px;
+}
+
+.bike_pic_container {
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 1em;
+  height: 200px;
+  text-align: center;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.bike_name {
+  display: inline-block;
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 5px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.price,
+.sponsor_status,
+.rent_price,
+.stock {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+@media (max-width: 1000px) {
+  .banner-shop-info__left {
+    display: none !important;
+  }
+}
+
+.edit_profile {
+  width: 100%;
+  height: 40px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.change_profile_sec {
+  float: right;
+  display: inline;
+  width: 150px;
+}
+
+.selectors {
+  float: left;
+  display: inline;
+  width: 150px;
+}
+
+.top {
+  display: inline-block;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.edit_menu,
+.edit_menu_product {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: scroll; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  padding-top: 60px;
+  /* padding-top: 60px; */
+  /* margin-bottom: 300px; */
+  padding-bottom: 500px;
+  font-family: "Rajdhani", "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+}
+
+
+.edit_content {
+  text-align: center;
+  box-shadow: 0px 10px 10px rgba(54, 54, 54, 0.84);
+  background-color: #fefefe;
+  margin: auto; /* 15% from the top and centered */
+  margin-bottom: 200px;
+  padding-bottom: 10px;
+  width: 30%; /* Could be more or less, depending on screen size */
+}
+
+.edit_content header {
+  background-color: #e5e5e5;
+  height: 50px;
+  width: 100%;
+}
+
+.edit_content header h4 {
+  position: absolute;
+  margin: 10px;
+}
+
+.edit_content label,
+.edit_content input,
+.edit_content select {
+    font-family: "Rajdhani" ,"Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(48, 48, 48);
+    vertical-align: center;
+    text-decoration: none;
+    margin-top: 10px;
+    margin-inline: 10px;
+    /* overflow: hidden; */
+}
+
+.edit_content select {
+  float: right;
+  width: 62%;
+}
+
+.edit_content label {
+    float: left;
+}
+
+.edit_content input::placeholder {
+  opacity: 0.5;
+}
+
+.edit_content input {
+  width: 60%;
+  float: right;
+}
+
+.edit_content button {
+  margin:auto;
+  /*margin: 10px;*/
+  font-weight: bold;
+  width: 90%;
+  height: 40px;
+  border-radius: 10px;
+}
+
+.edit_content button:hover {
+  background-color: rgb(45, 184, 197);
+  transition: 0.5s;
+}
+
+.each_product_editing {
+  border: 0.5px solid rgb(128 128 128);;
+}
+
+.add_product {
+  display: inline;
+  width: 100%;
+}
+
+.product_top {
+  width: 100%;
+  display: inline-block;
+}
+
+.text_product {
+  display: inline;
+  width: 100px;
+  float: left;
+}
+
+.add_prodcut {
+  height: 40px;
+  width: 99%;
+  border: none;
+  cursor:pointer;
+}
+
+.product__button{
+  display: flex;
+  margin-top: 8px;
+}
+
+.status_sec {
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  text-align: center;
+  border-radius: 5px;
+  width: 50%;
+  float: left;
+}
+
+.status_sec:hover{
+  cursor: pointer;
+}
+
+.button_container{
+  width: 50%;
+  float: right;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  text-align: center;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.status_button {
+  /* padding-top: 5px; */
+  font-family: "Rajdhani", "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+  font-weight: bolder;
+  font-size: large;
+}
+
+.status_button:hover{
+  cursor: pointer;
+}
+
+.edit_img{
+  position: absolute;
+	padding: 16px;
+	background-color: green;
+	border-radius: 16px;
+	bottom: 10px;
+	left: 200px;
+	width: 100px;
+}
+
+.current_imgs {
+  background-color: #f7f7f7;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+}
+
+.current_imgs_pic {
+  /* height: 100%;
+  width: 100%; */
+  object-fit: contain;
+  height: 100px;
+  max-width: 200px;
+  background: transparent;
+  /* background: transparent; */
+}
+
+
+.error_menu {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1000; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+  font-family: "Rajdhani" ,"Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+  text-align: center;
+}
+
+.error_menu_content {
+  box-shadow: 0px 10px 10px rgba(54, 54, 54, 0.84);
+  text-align: center;
+  background-color: #fefefe;
+  margin: auto; /* 15% from the top and centered */
+  width: 30%; /* Could be more or less, depending on screen size */
+  height: 200px;
+}
+
+.checkDiv{
+  width: 100%;
+  margin-bottom: 10px;
+  text-align: center;
+  align-items: center;
+  font-weight: 1000;
+  background-color: gray;
+  border: 2px solid rgb(128 128 128);
+}
+
+.submit_btn{
+  display: none;
+  margin: 10px;
+  font-weight: bold;
+  width: 90%;
+  height: 40px;
+  border-radius: 10px;
+  margin-bottom: 100px;
+}

@@ -1,0 +1,232 @@
+{% extends "../base.html" %}
+{% load static %}
+{% load custom_tags %}
+
+{% block content %}
+
+    <title>ProductInfo</title>
+    <link rel="stylesheet" href="{% static 'css/productinfo.css' %}">
+
+    <div class ="container">
+        {% if product.Stock <= 0 %}
+            <div class="sold_out">Sold Out</div>
+        {% endif %}
+
+        <div class ="container_upper">
+            <h1 id = "product_name">{{ product.Product_name }}</h1>
+            <div class = "product_photos">
+                <div class="product_ban">
+                    {% for photo in photos %}
+                        <div class="product_ban_image">
+                            <img id="banner_img" name="banner_img" src="{{ photo.Storage_location }}" onclick="changePhoto(this)">
+                        </div>
+                    {% endfor %}
+                </div>
+                <img class="product" id="display_img" src="{{ photos.0.Storage_location }}" alt="product" onclick="popupPhoto()">
+                <div id="popup_photo" class="popup_photo">
+                    <span onclick="document.getElementById('popup_photo').style.display='none'"
+                        class="close" title="Close Location Menu">&times;</span>
+                    <img id="popup_photo_img" src="" class="popup_photo_detail animate">
+                    <script>
+                        var model = document.getElementById('popup_photo');
+                        window.onclick = function(event) {
+                            if (event.target === model) {
+                                model.style.display = "none";
+                            }
+                        }
+                    </script>
+                </div>
+            </div>
+
+            <div class = "product_details">
+                <hr>
+                <div class = "detail">
+                    <h2 id = "left_detail">Shop</h2>
+                    <h2 id = "right_detail_shop"><a href="javascript:" onclick="openPopup()" style="float: right">{{ product.Shop_ID.Business_Name }}</a></h2>
+                </div><br>
+                <div class = "detail">
+                    <h2 id = "left_detail">Colour</h2>
+                    <h2 id = "right_detail_color">{{ info.Colour }}</h2>
+                </div><br>
+                <div class = "detail">
+                    <h2 id = "left_detail">Bike Type</h2>
+                    <h2 id = "right_detail_type">{{ info.Type }}</h2>
+                </div><br>
+                <div class = "detail">
+                    <h2 id = "left_detail">Age Range</h2>
+                    <h2 id = "right_detail_age">{{ info.Age_Range }}</h2>
+                </div><br>
+                <div class = "detail">
+                    <h2 id = "left_detail">Brand</h2>
+                    <h2 id = "right_detail_brand">{{ info.Brand }}</h2>
+                </div><br>
+                <div class = "detail">
+                    <h2 id = "left_detail">Number of speeds</h2>
+                    <h2 id = "right_detail_speed">{{ info.Speed }}</h2>
+                </div><br>
+                <div class = "detail">
+                    <h2 id = "left_detail">Stock</h2>
+                    <h2 id = "right_detail_speed">{{ product.Stock }}</h2>
+                </div>
+                <hr>
+{#                    <h2 id = "describe"> About This Item:</h2>#}
+{#                    <p id = "description"></p>#}
+            </div>
+
+            <div class = "price">
+                <div class = "rent_price">
+                    <h2 id = "price">${{ product.Rent_Price }} per day</h2>
+                    {% if incart %}
+                        <button class = "add_cart" onclick="">In Cart</button>
+                    {% elif product.Rent_Price <= 0 %}
+                        <button class = "add_cart" onclick="">Not Available</button>
+                    {% elif product.Stock <= 0%}
+                        <button class = "add_cart" onclick="">Sold Out</button>
+                    {% else %}
+                        <button class = "add_cart" onclick="location.href='{% url 'cart_rent' product.Product_ID %}'">Rent Now</button>
+                    {% endif %}
+                </div>
+
+                <div class = "product_price">
+                    <h2 id = "price">${{ product.Sell_Price }}</h2>
+                    {% if incart %}
+                        <button class = "add_cart" onclick="">In Cart</button>
+                    {% elif product.Sell_Price <= 0 %}
+                        <button class = "add_cart" onclick="">Not Available</button>
+                    {% elif product.Stock <= 0%}
+                        <button class = "add_cart" onclick="">Sold Out</button>
+                    {% else %}
+                        <button class = "add_cart" onclick="location.href='{% url 'cart_buy' product.Product_ID %}'">Add to cart</button>
+                    {% endif %}
+                </div>
+            </div>
+
+        </div>
+
+        <div class ="container_below">
+            <div class ="product_information">
+                <h2 id = "product_title">Product Description</h2>
+                <p id = "description">{{ info.Description }}</p>
+            </div>
+        </div>
+
+        <div id="shop_section" class="shop_section">
+            <div class="shop_info">
+                <img src="{{ product.Shop_ID.Logo_URL }}">
+                <div class="shop_details">
+                    <h2>{{ product.Shop_ID.Business_Name }}</h2>
+                    <p>Phone: {{ product.Shop_ID.Business_Number }}</p>
+                    <p>Email: {{ product.Shop_ID.Business_Email }}</p>
+                    <p>Location: {{ product.Shop_ID.Location }}</p>
+                    <p>Website: <a href="{{ product.Shop_ID.Business_URL }}" target="_blank">{{ product.Shop_ID.Business_URL }}</a></p>
+                    <p>ABN: {{ product.Shop_ID.ABN }}</p>
+                </div>
+            </div>
+            <hr style="width: 90%">
+            <div class="products_container">
+                {% for p in shop_products %}
+                    <div class="product_info" onclick="location.href='{% url 'product_info' p.Product_ID %}'">
+                        {% define_break True as continue %}
+                            {% for img in media %}
+                                {% if continue %}
+                                    {% if img.Product_ID == p %}
+                                        <img src="{{img.Storage_location}}">
+                                        {% define_break False as continue %}
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        <br>
+                        {{ p.Product_name }}
+                    </div>
+                {% endfor %}
+            </div>
+            <hr style="width: 90%">
+            <div class="reviews">
+                <p id="no-reviews"> This user does not have any reviews yet...</p>
+                <!--If user has reviews, default remove text-->
+                <script>
+                    if ({{size}} > 0) {
+                        document.getElementById("no-reviews").innerHTML = "";
+                        document.getElementById("no-reviews").style.marginTop = 0;
+                        document.getElementById("no-reviews").style.marginLeft = 0;
+                    }
+                </script>
+                <div class=Feedback_boxes>
+                    {% for review in reviews %}
+                        <div class=Feedback1>
+                            <div class="profile1">
+                                <div class="stars-outer">
+                                    <div class="stars-inner" id="value0">
+                                    </div>
+                                </div>
+                            </div>
+                            <img class="reviewer_imgs" id="reviewer_picture" onerror='this.style.display = "none"' src={{review.Reviewer.image_location}} />
+                            <h2 class=Reviewer>{{ review.Reviewer}} </h2>
+                            <p class=Review_Comment>{{ review.Comment}} </p>
+                        </div>
+                        <script>
+                            var elements = document.getElementsByClassName("stars-inner");
+                            if({{ forloop.counter0 }} == 0){
+                                elements[0].style.width = (100 * {{review.Rating_value}}) / 5 + "%";
+                            }
+                            else if({{ forloop.counter0 }} == 1){
+                                elements[1].style.width = (100 * {{review.Rating_value}}) / 5 + "%";
+                            }
+                            else if({{ forloop.counter0 }} == 2){
+                                elements[2].style.width = (100 * {{review.Rating_value}}) / 5 + "%";
+                            }
+                        </script>
+                        <script>
+                            var profiles = document.getElementsByClassName("profile1");
+                            var img = document.getElementsByClassName('reviewer_imgs');
+
+                            if({{ forloop.counter0 }} == 0 && img[0].getAttribute('src') != "" && img[0].getAttribute('src') != "/"){
+                                profiles[0].style.backgroundImage = "none";
+                                profiles[0].style.position = "absolute";
+                            }
+                            else if({{ forloop.counter0 }} == 1 && img[1].getAttribute('src') != "" && img[1].getAttribute('src') != "/"){
+                                profiles[1].style.backgroundImage = "none";
+                                profiles[1].style.position = "absolute";
+                            }
+                            else if({{ forloop.counter0 }} == 2 && img[2].getAttribute('src') != "" && img[2].getAttribute('src') != "/"){
+                                profiles[2].style.backgroundImage = "none";
+                                profiles[2].style.position = "absolute";
+                            }
+                        </script>
+                    {% endfor %}
+                </div>
+            </div>
+            <button onclick="closePopup()">Close</button>
+        </div>
+
+{#        <div class = "rent_form" id = "rent_form">#}
+{#            <form enctype="multipart/form-data" class = "form" method = "Post">#}
+{#                {% csrf_token %}#}
+{#                <div class = "form_detail">#}
+{#                    <label id= "label" class = "from" for = "start_date">From</label>#}
+{#                    <input type="date" id="start_date" name="start_date" required><br><br>#}
+{#                </div>#}
+{##}
+{#                <p id = "note">#}
+{#                    Please note that the rent will be debited from your account weekly.<br>#}
+{#                    There will be a bond charged from the shop when you pick up the bike.#}
+{#                </p>#}
+{##}
+{#                <button type="reset" onclick="closePopup()">Cancel</button>&emsp;#}
+{#                <button type="submit">#}
+{#                    <script src = "https://checkout.stripe.com/checkout.js" class="stripe_button"#}
+{#                        data-key = "{{ key }}"#}
+{#                        data-description = "Payment Gateway"#}
+{#                        data-amount = "{{ product.Rent_Price }}"#}
+{#                        data-locale = "auto">#}
+{#                    </script>#}
+{#                    Submit#}
+{#                </button>#}
+{#            </form>#}
+{#        </div>#}
+
+    </div>
+
+    <script src="{% static 'js/productinfo.js' %}"></script>
+
+{% endblock %}

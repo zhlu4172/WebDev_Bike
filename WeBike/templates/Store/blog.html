@@ -1,0 +1,132 @@
+{% extends "../base.html" %}
+{% load static %}
+
+{% block content %}
+
+
+<title>Blog</title>
+<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+<script src="{% static 'js/blog.js' %}"></script>
+
+<div class="container" id="container">
+    <!-- Create Blog Section -->
+    {% if user.is_admin %}
+        <button onclick="openEditDialog()" class="edit_blog_section_button">edit blog</button>
+        <div id="edit_blog_section" class="edit_blog_section">
+            <button onclick="closeEditDialog()" class="edit_blog_section_button">x</button>
+            <div>
+        <br><br>
+        <h4>Add a new blog post below</h4>
+        <br>
+        <form method="POST" action="{% url 'postBlog' %}">
+          {% csrf_token %}
+          <input type="text" id="blog_title" name="blog_title" placeholder="Blog Title">
+          <input type="text" id="blog_preview" name="blog_preview" placeholder="Blog Preview">
+          <input type="text" id="blog_link" name="blog_link" placeholder="Blog Link">
+          <input type="text" id="blog_image"  name="blog_image" placeholder="Blog Image Link">
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+
+            <!-- Remove Blog Section -->
+            <div>
+                <br><br>
+                <h4>Remove a blog post by entering its ID below</h4>
+                <br>
+                <form method="POST" action="{% url 'postBlogRemove' %}">
+                  {% csrf_token %}
+                  <input type="text" id="blog_id" name="blog_id" placeholder="Blog ID">
+                  <input type="submit" value="Submit">
+                </form>
+              </div>
+
+            <!-- Write Own Blog Section -->
+            <div>
+                <br><br>
+                <h4>Write your own blog below:</h4>
+                <br>
+                <form method="POST" action="{% url 'postSelfBlogAdd' %}">
+                  {% csrf_token %}
+                  <input type="text" id="self_blog_title" name="self_blog_title" placeholder="Blog Title">
+                  <input type="text" id="self_blog_image"  name="self_blog_image" placeholder="Blog Image Link">
+                  <textarea type="text" id="self_blog_text" name="self_blog_text" placeholder="Blog Text" rows="10" cols="50"></textarea>
+                  <input type="submit" value="Submit">
+                </form>
+              </div>
+        </div>
+    {% endif %}
+  
+    <div class="heading_div">
+        <h1 class="heading">Together, WeBike!</h1>
+    </div>
+
+      <div class="box-container" id="box-container">
+        {% for x in blogs %}
+          {% if x.Self_Written %}
+            <!-- Self Written Blog -->
+            <div class="box">
+              <div class="image">
+                <img src="{{x.Image_URL}}">
+              </div>
+
+              <div class="content">
+                <h2>{{x.Title}}</h2>
+                <p id="innerText">{{x.Preview}}</p>
+                <button class="btn" onclick="loadArticle('{{x.Image_URL}}', '{{x.Title}}', this.parentNode)">Finish Reading</button>
+                {% if user.is_admin %} 
+                  <p>ID: {{x.Blog_ID}}</p>
+                {% endif %}
+              </div>
+            </div>
+
+            {% else %}
+            <!-- External Blog -->
+            <div class="box">
+              <div class="image">
+                <img src="{{x.Image_URL}}">
+              </div>
+
+              <div class="content">
+                <h2>{{x.Title}}</h2>
+                <p>{{x.Preview}}</p>
+                <a href="{{x.Blog_URL}}" class="btn" target="_blank">Read More</a>
+                {% if user.is_admin %} 
+                  <p>ID: {{x.Blog_ID}}</p>
+                {% endif %}
+              </div>
+            </div>
+
+          {% endif %}
+        {% endfor %}
+    </div>
+
+    <div id="load-more" > Load More </div>
+    <script>loadMore();</script>
+
+    <button class="suggestions-button" onclick="openForm()">Feel Somethings Missing?</button>
+
+    <div class="suggestions-box" id="suggestions-form">
+        <form method="POST" class="form-container">
+            {% csrf_token %}
+          <h3>Let Us Know!</h3>
+          <label for="msg"><b>We would love to hear about what you would like to hear, let's grow this community!</b></label>
+          <textarea placeholder="Your message...." name="msg" id="msg" required></textarea>
+      
+          <button type="submit" class="btn">Send</button>
+          <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+      </div>
+      
+</div>
+
+
+<div class="admin-blog" id="admin-blog">
+  <button id="admin-button-close" onclick="closeArticle()"><b>X</b></button>
+  <div id="admin-image-div"> <img id="admin-image"></div>
+  <h5 id="admin-heading"></h5>
+  <p id="admin-text"><pre id="pre-format"></pre></p>
+  <button id="admin-button-close" onclick="closeArticle()"><b>X</b></button>
+</div>
+
+
+{% endblock %}

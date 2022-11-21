@@ -1,0 +1,153 @@
+{% extends "../base.html" %}
+{% load static %}
+
+{% block content %}
+
+    <title>Profile</title>
+    <link rel="stylesheet" href="{% static 'css/userpage.css' %}">
+
+    <!--information-->
+    <div>
+        <!--avatar-->
+        <div class="avatar">
+            {% if user.image_location == "" or user.image_location == None %}
+                <img src="../../static/images/default_user_logo.jpg">
+            {% else %}
+                <img src="{{ user.image_location }}">
+            {% endif %}
+        </div>
+        <!--avatar menu-->
+        <div class="avatar_menu">
+            <div class="avatar_menu_info">
+                {% if user.get_full_name == None or user.get_full_name == "" %}
+                    <h1>user#{{ user.email }}</h1>
+                {% else %}
+                    <h1>{{ user.get_full_name }}</h1>
+                {% endif %}
+                <h2>{{ user.email }}</h2>
+                <h2>{{ user.phone_number }}</h2>
+            </div>
+            <div class="avatar_menu_buttons">
+                <a href="javascript:" onclick="document.getElementById('edit_menu').style.display='block'">
+                    <button>Edit profile</button>
+                </a>
+                {% if shop == 0 or shop == None %}
+                    <a href="{% url 'shopsetup' %}">
+                        <button>Create Shop</button>
+                    </a>
+                {% else %}
+                    <a href="{% url 'shoppage' %}">
+                        <button>My Shop</button>
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+        <!--edit pop-up-->
+        <div id="edit_menu" class="edit_menu">
+            <form class="edit_content animate" method="POST" action="{% url 'editprofile' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <span onclick="document.getElementById('edit_menu').style.display='none'"
+                  class="close" title="Close Location Menu">&times;</span>
+                <header>
+                    <h4>Edit Profile</h4>
+                </header>
+                <label>First Name</label>
+                <input name="fname" type="text" placeholder="{{ user.first_name }}">
+                <br><br>
+                <label>Last Name</label>
+                <input name="lname" type="text" placeholder="{{ user.last_name }}">
+                <br><br>
+                <label for="phone">Phone</label>
+                <input name="phone" type="text" placeholder="{{ user.phone_number }}"
+                       pattern="^\({0,1}((0|\+61)(2|4|3|7|8)){0,1}\){0,1}( |-){0,1}[0-9]{2}( |-){0,1}[0-9]{2}( |-){0,1}[0-9]{1}( |-){0,1}[0-9]{3}$"
+                        title="Please enter a valid Australian phone number.">
+                <br><br>
+                <label>Profile Photo</label>
+                <input name="avatar" type="file" accept="image/*">
+                <br><br>
+                <button type="submit" onclick="">Save</button>
+            </form>
+            <script>
+                var model = document.getElementById('edit_menu');
+                window.onclick = function(event) {
+                    if (event.target === model) {
+                        model.style.display = "none";
+                    }
+                }
+            </script>
+        </div>
+        <hr style="width: 90%">
+        <!--tab menu-->
+        <div class="tab_menu">
+            <a href="{% url 'userpage' %}">
+                <button id="tablink_reviews" name="tablink" onclick="">Reviews</button>
+            </a>
+            <a href="{% url 'orderHistory' %}">
+                <button id="tablink_orders" name="tablink" onclick="">Order History</button>
+            </a>
+        </div>
+        <!--info section-->
+        <div class="info_section">
+            <!--reviews-->
+            <div class="reviews">
+                <h2>My Reviews</h2>
+                <p id="no-reviews"> This user does not have any reviews yet...</p>
+                <!--If user has reviews, default remove text-->
+                <script>
+                    if({{size}} > 0){
+                        document.getElementById("no-reviews").innerHTML = "";
+                        document.getElementById("no-reviews").style.marginTop = 0;
+                        document.getElementById("no-reviews").style.marginLeft = 0;
+                    }
+                </script>
+                <div class=Feedback_boxes>
+                    {% for review in reviews %}
+                        <div class=Feedback1>
+                            <div class="profile1">
+                                <div class="stars-outer">
+                                    <div class="stars-inner" id="value0">
+                                    </div>
+                                </div>
+                            </div>
+                            <img class="reviewer_imgs" id="reviewer_picture" onerror='this.style.display = "none"' src={{review.Reviewer.image_location}} />
+                            <h2 class=Reviewer>{{ review.Reviewer}} </h2>
+                            <p class=Review_Comment>{{ review.Comment}} </p>
+                        </div>
+                        <script>
+                            var elements = document.getElementsByClassName("stars-inner");
+                            if({{ forloop.counter0 }} == 0){
+                                elements[0].style.width = (100 * {{review.Rating_value}}) / 5 + "%";
+                            }
+                            else if({{ forloop.counter0 }} == 1){
+                                elements[1].style.width = (100 * {{review.Rating_value}}) / 5 + "%";
+                            }
+                            else if({{ forloop.counter0 }} == 2){
+                                elements[2].style.width = (100 * {{review.Rating_value}}) / 5 + "%";
+                            }
+                        </script>
+                        <script>
+                            var profiles = document.getElementsByClassName("profile1");
+                            var img = document.getElementsByClassName('reviewer_imgs');
+
+                            if({{ forloop.counter0 }} == 0 && img[0].getAttribute('src') != "" && img[0].getAttribute('src') != "/"){
+                                profiles[0].style.backgroundImage = "none";
+                                profiles[0].style.position = "absolute";
+                            }
+                            else if({{ forloop.counter0 }} == 1 && img[1].getAttribute('src') != "" && img[1].getAttribute('src') != "/"){
+                                profiles[1].style.backgroundImage = "none";
+                                profiles[1].style.position = "absolute";
+                            }
+                            else if({{ forloop.counter0 }} == 2 && img[2].getAttribute('src') != "" && img[2].getAttribute('src') != "/"){
+                                profiles[2].style.backgroundImage = "none";
+                                profiles[2].style.position = "absolute";
+                            }
+                        </script>
+                    {% endfor %}
+                </div>
+            </div>
+            {% block page_content %}{% endblock %}
+        </div>
+    <script src="{% static 'js/userpage.js' %}"></script>
+    </div>
+
+{% endblock %}

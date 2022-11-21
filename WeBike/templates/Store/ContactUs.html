@@ -1,0 +1,88 @@
+{% extends "../base.html" %}
+{% load static %}
+
+{% block content %}
+
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="{% static 'css/contactus.css' %}">
+
+    <div class="Container">
+
+            <div class="Left_Side_Div">
+                <h1 id="Left_Heading">Get In Touch</h1>
+                <p id="Left_Text">We are here for you! How can we help you?</p>
+
+                <div class="Form_Div">
+                      <form method="POST">
+                        {% csrf_token %}
+                        <label id="label" for="First Name">First Name:</label><br>
+                        <input type="text" id="First_Name" name="First_Name"required><br><br>
+
+                        <label id="label" for="Last Name">Last Name:</label><br>
+                        <input type="text" id="Last_Name" name="Last_Name" required><br><br>
+
+                        <label id="label" for="Email">Contact Email:</label><br>
+                        <input type="text" id="Email" name="Email" required><br><br>
+
+                        <label id="label" for="Subject">Subject:</label><br>
+                        <input type="text" id="Subject" name="Subject" required><br><br>
+
+                        <label id="label" for="textBox">Your Message:</label><br>
+                        <textarea rows = "5" cols="50" name="Message" required id="textFieldLong" placeholder="Enter details here..."></textarea><br><br>
+
+                        <input id="submitBtn" type="submit" value="Submit">
+
+                    </form>
+                </div>
+
+            </div>
+
+
+            <div class="Right_Side_Div">
+
+                <div class="Image_Div">
+                    <img class="Bike_Image" src="{% static 'images/Long_Bike_Image.jpg' %}">
+                </div>
+
+                <div class="Text_Div">
+                    <div class="Layer">
+                        <div class="Left_top">
+                            <img class="Icon" src="{% static 'images/Map_Icon.png' %}">
+                        </div>
+
+                        <div class="Right_top">
+                            <p id="Contact_Info">
+                                <a href="https://maps.google.com/?q=the+university+of+sydney" target="_blank" style="text-decoration: none">
+                                    The University of Sydney, Camperdown, Sydney</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="Layer">
+                        <div class="Left_mid">
+                            <img class="Icon" src="{% static 'images/Email_Icon.png' %}">
+                        </div>
+                        <div class="Right_mid">
+                            <p id="Contact_Info">
+                                <a href="mailto:WEBIKEmail" style="text-decoration: none">Webike@gmail.com</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="Layer">
+                        <div class="Left_bottom">
+                            <img class="Icon" src="{% static 'images/Phone_Icon.png' %}">
+                        </div>
+                        <div class="Right_bottom">
+                            <a href="tel:602-216-4143" style="text-decoration: none">
+                                <p id="Contact_Info">602-216-4143</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+{% endblock %}
+

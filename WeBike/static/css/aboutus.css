@@ -1,0 +1,120 @@
+/* Div for the Our Goals section */
+body{
+    font-family: "Rajdhani" ,"Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+}
+
+.Our_Goal_Div{
+    overflow: hidden;
+}
+
+.Our_Goal_Text_Div{
+    float: left;
+    display: inline-block;
+    vertical-align: middle;
+    /* border: 1px solid red; */
+    width: 50%;
+    height: 100%;
+    text-align: center;
+}
+
+.Goal_Heading{
+    margin-top: 20%;
+    color: white;
+    text-align: center;
+    font-size: 60px;
+}
+
+.Goal_Text{
+    font-size: 30px;
+}
+
+.Our_Goal_Image_Div{
+    float: right;
+    width: 50%;
+    display: inline-block;
+    vertical-align: middle;
+    /* border: 1px solid red; */
+    overflow: hidden;
+    height: 100%;
+}
+
+.Bike_Garage{
+    max-height: 600px;
+    display: block;
+}
+
+
+
+
+/* Divs for Rafas Story */
+.Rafas_Story_Div{
+    overflow: hidden;
+    /* feel free to adjust - I only changed it so it is
+    not so bright! */
+}
+
+.Rafas_Story{
+    color: black;
+    text-align: center;
+    font-size: 60px;
+    margin-top: 5%;
+}
+
+/* Div for the first image and paragraph */
+.First_Paragraph_And_Image_Div{
+    overflow: hidden;
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.Rafas_Story_Text_Div1{
+    vertical-align: middle;
+}
+
+.Rafas_Story_first_paragraph{
+    text-align: center;
+    font-size: 26px;
+    padding-left: 25%;
+    padding-right: 25%;
+}
+
+.Rafas_Story_Image_Div1{
+    vertical-align: middle;
+}
+
+.Wall_Art_Bike{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+
+/* Div for the second image and paragraph */
+.Rafas_Story_Second_Paragraph_Div{
+    padding-top: 5%;
+    padding-bottom: 5%;
+    vertical-align: middle;
+}
+
+.Rafas_Story_Text_Div{
+    vertical-align: middle;
+}
+
+.Rafas_Story_Second_Paragraph{
+    text-align: center;
+    font-size: 26px;
+    padding-left: 25%;
+    padding-right: 25%;
+}
+
+.Rafas_Story_Image_Div{
+    vertical-align: middle;
+}
+
+.Cat_Bike{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}

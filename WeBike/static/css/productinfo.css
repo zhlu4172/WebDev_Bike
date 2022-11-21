@@ -1,0 +1,468 @@
+.container{
+    font-family: "Rajdhani" ,"Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+    width: 1400px;
+    margin: auto;
+}
+
+.container_upper{
+    margin-top: 40px;
+    margin-inline: 100px;
+    overflow: hidden;
+}
+
+.container_below {
+    margin-top: 40px;
+}
+
+.price{
+    float: left;
+    vertical-align: top;
+    display: inline-block;
+    margin-left: 50px;
+}
+
+.rent_price{
+    border-radius: 25px;
+    border: 2px solid #1C2F40;
+    font-size: 10px;
+    padding: 10px;
+    width: 150px;
+    height: 80px;
+    text-align: center;
+    color: white;
+    background-color: #1C2F40;
+}
+
+.product_price{
+    margin-top: 30px;
+    border-radius: 25px;
+    border: 2px solid #1C2F40;
+    font-size: 10px;
+    padding: 10px;
+    width: 150px;
+    height: 80px;
+    text-align: center;
+    color: white;
+    background-color: #1C2F40;
+}
+
+.rent_button{
+    cursor: pointer;
+}
+
+.rent_form{
+    background: #FFFFFF;
+    border-radius: 50px;
+    border-color: #1C2F40;
+    border-style: double;
+    position: absolute;
+    width: 400px;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    /*text-align: center;*/
+    padding: 20px 30px 30px;
+    color: #1C2F40;
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+}
+
+.open-rent_form{
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#note{
+    /*text-align:center;*/
+    font-weight: bold;
+    font-size: 13px;
+}
+
+#label{
+    font-weight: bold;
+}
+
+#start_date{
+    border-color: #1C2F40;
+    border-radius: 2px;
+    /*padding: 3px;*/
+    float: right;
+    margin-left: 50px;
+}
+
+#end_date{
+    border-color: #1C2F40;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.product_details{
+    float: left;
+    vertical-align: top;
+    display: inline-block;
+    font-size: 10px;
+    margin-top: 0px;
+    line-height: 10px;
+    margin-left: 50px;
+}
+
+.product_photos{
+    float: left;
+    vertical-align: top;
+    display: inline-block;
+    width: 700px;
+    height: 450px;
+    margin-bottom: 10px;
+}
+
+#price{
+    /*margin-left: 40px;*/
+}
+
+.add_cart{
+    font-weight: normal;
+    text-align: center;
+    padding: 5px 32px;
+}
+
+.rent_button{
+    font-weight: normal;
+    text-align: center;
+    padding: 5px 37px;
+}
+
+#product_name{
+    margin-top: 0px;
+    color: #1C2F40;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.product_ban {
+    float: left;
+}
+
+.product_ban_image {
+    width: 70px;
+    height: 55px;
+    margin-bottom: 5px;
+}
+
+.product_ban_image img {
+    margin-left: 3px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /*border: 1px solid black;*/
+    cursor: pointer;
+}
+
+.product_ban_image img.active {
+    box-shadow: 0px 0px 3px 3px rgb(45, 184, 197);
+}
+
+.product{
+    cursor: zoom-in;
+    float: left;
+    width: 550px;
+    height: 450px;
+    object-fit: cover;
+    margin-left: 50px;
+}
+
+.popup_photo {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+    text-align: center;
+}
+
+.popup_photo_detail {
+    box-shadow: 0px 10px 10px rgba(54, 54, 54, 0.84);
+    background-color: #fefefe;
+    margin: auto; /* 15% from the top and centered */
+    max-width: 60%;
+    max-height: 80%;
+}
+
+.detail{
+    width: 200px;
+    display:inline-block;
+}
+
+#left_detail{
+    float: left;
+}
+
+#right_detail_shop{
+    float: right;
+    text-decoration: none;
+    width: 150px;
+    word-break: break-word;
+}
+
+
+#right_detail_color{
+    float: right;
+}
+
+#right_detail_type{
+    float: right;
+}
+
+#right_detail_age{
+    float: right;
+}
+
+#right_detail_brand{
+    float: right;
+}
+
+#right_detail_speed{
+    float: right;
+}
+
+.product_information{
+    margin-left: 100px;
+}
+
+#product_title{
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+.form_detail{
+    display:inline-block;
+}
+
+.shop_section {
+    cursor: default;
+    background: #FFFFFF;
+    border-radius: 22px;
+    border: 1px solid;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    width: 500px;
+    z-index: 3;
+    padding: 10px;
+    color: #1C2F40;
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+    font-family: "Rajdhani" ,"Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+    font-size: 15px;
+    box-shadow: 0px 0px 5px 5px rgba(75, 75, 75, 0.36);
+    text-align: center;
+}
+
+.shop_section button {
+    margin: 10px;
+    width: 90%;
+}
+
+.open_shop_section {
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.shop_info {
+    height: 160px;
+}
+
+.shop_info img {
+    float: left;
+    height: 150px;
+    width: 150px;
+    margin-left: 50px;
+    object-fit: cover;
+    margin-top: 20px;
+}
+
+.shop_details {
+    float: right;
+    text-align: left;
+    margin-right: 50px;
+    width: 200px;
+    height: 200px;
+    overflow: auto;
+    text-overflow: ellipsis;
+}
+
+.shop_details::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+.shop_details::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+.shop_details::-webkit-scrollbar-thumb {
+    background-color: rgba(28, 47, 64, 0.58);
+    border-radius: 10px;
+}
+
+.shop_details::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(28, 47, 64, 0.87);
+}
+
+.shop_details p {
+    margin: 0px;
+}
+
+.products_container {
+    overflow-y: scroll;
+    height: 150px;
+}
+
+.product_info {
+    display: inline-block;
+    width: 120px;
+    height: 140px;
+    margin: 10px;
+    overflow: hidden;
+    word-break: break-word;
+    cursor: pointer;
+}
+
+.product_info:hover {
+    box-shadow: 0px 0px 5px 5px rgba(129, 129, 129, 0.53);
+}
+
+.product_info img {
+    margin: 2px;
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+}
+
+.reviews {
+    height: 200px;
+    overflow: auto;
+    text-align: left;
+}
+
+/* Feedback */
+
+.Feedback1{
+    background-color: #FFFFFF;
+    width: 400px;
+    height: 250px;
+    outline: 1px solid #E7EAEC;
+    display:inline-block;
+    margin-left:30px;
+    vertical-align: bottom;
+    position: relative;
+}
+
+.profile1{
+    margin: 0px;
+    background-color: lightblue;
+    width: 70px;
+    height: 70px;
+    margin:25px 25px 0px 25px;
+    position: relative;
+    background-image: url('https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png');
+    background-size: 70px;
+}
+
+#reviewer_picture{
+    margin: 0px;
+    width: 70px;
+    height: 70px;
+    margin:25px 25px 0px 25px;
+    position: relative;
+    background-size: 70px;
+}
+
+.Review_Comment{
+    font-family: 'Roboto', sans-serif;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top:-10px;
+    margin-bottom:10px;
+    word-wrap    : break-word;
+    overflow-wrap: break-word;
+}
+
+.Reviewer{
+    font-family: 'Roboto', sans-serif;
+    margin-left:25px;
+    margin-top:13px;
+}
+
+html {
+    scroll-behavior: smooth !important;
+}
+
+.stars-outer {
+    margin-left:280px;
+    text-align:right;
+    display: inline-block;
+    position: relative;
+    font-family: FontAwesome;
+    color:#f8ce0b;
+}
+
+.stars-outer::before {
+    content: "\f006 \f006 \f006 \f006 \f006";
+}
+
+.stars-inner, #value {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    visibility:visible;
+}
+
+#value1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+}
+
+#value2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+}
+
+.stars-inner::before {
+    content: "\f005 \f005 \f005 \f005 \f005";
+    color: #f8ce0b;
+}
+
+#no-reviews{
+    font-family: 'Roboto', sans-serif;
+    margin-left:30px;
+    margin-top:100px;
+}
+
+.sold_out {
+  background-color: #1C2F40;
+  color: white;
+  width: 100%;
+  text-align: center;
+    font-size: 22px;
+}

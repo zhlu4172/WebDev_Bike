@@ -1,0 +1,44 @@
+{% extends "../base.html" %}
+{% load static %}
+
+{% block content %}
+
+    <title>Successfully Paid</title>
+    <link rel="stylesheet" href="{% static 'css/card.css' %}">
+
+    <div class = "container">
+        <div class = "Content">
+            <h2>Please enter your card details here.</h2>
+            <form method="POST">
+                {% csrf_token %}
+
+                <div class = "form_detail">
+                    <label id="label" for = "Number">Card Number:</label><br>
+                    <input type="text" id="Number" class = "textfield" name="Number" size="30" pattern="[0-9]{16}" required><br><br>
+                </div>
+
+                <div class= "form_detail">
+                    <label id="label" for = "Name">Cardholder Name:</label><br>
+                    <input type="text" id="Name" class = "textfield" name="Name" size="30" onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))' required><br><br>
+                </div>
+
+                <div class= "form_detail">
+                    <label id="label" for = "Expiry">Expiry Date:</label><br>
+                    <input type="month" id="Expiry" name="Expiry" required><br><br>
+                </div>
+
+                <div class= "form_detail">
+                    <label id="label" for = "CVV">CVV:</label><br>
+                    <input type="text" id="CVV" class = "textfield" name="CVV" size="5" pattern="[0-9]{3}" required><br><br><br>
+                </div>
+
+                <input id = "PayButton" type = "submit" value = "Pay">
+            </form>
+
+            <br><br><br><br><br><br><br>
+
+        </div>
+    </div>
+
+{% endblock %}
+

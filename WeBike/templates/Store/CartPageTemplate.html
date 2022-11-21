@@ -1,0 +1,76 @@
+{% extends "../base.html" %}
+{% load static %}
+
+{% block content %}
+
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="{% static 'css/cartpage.css' %}">
+    <script src="{% static 'js/cartpage.js' %}"></script>
+
+    <div class="Heading">
+        <h1>Your Cart:</h1>
+    </div>
+
+    <div class="cart-container">
+        <div class="Left_Div">
+            <!-- Cart Details -->
+            <div id="ProductsDiv">
+                <script>generateCart()</script>
+            </div>
+        </div>
+
+
+        <div class="Right_Div">
+            <div class="Order_Summary">
+                <h1 id="orderTitle">Your Order Summary</h1>
+                <div class="total-price">
+                    <table id="Totals">
+                        <tr>
+                            <td>Subtotal</td>
+                            <td id="SubtotalAmount">
+                                <!-- Script to update total before GST -->
+                                <script>calculateBeforeGST();</script>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>GST</td>
+                            <td id="GST">25</td>
+                        </tr>
+                        <tr>
+                            <td>Grand Total: AUD $</td>
+                            <td id="GrandTotal">
+                                <script>
+                                    calculateGrandTotal();
+                                </script>
+
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class = submitButton_Div>
+                <a href="{% url "paymentpage" %}" class="btnHref">
+                    <button class="btn">Checkout</button>
+                </a>
+            </div>
+
+
+            <!-- if we want to include icons once we know what we can offer -->
+
+            <!-- <div class="Payment_Icons">
+                <div class="Icons">
+                    <img class="IconImages" src="{% static 'images/visa.png' %}">
+                </div>
+                <div class="Icons">
+                    <img class="IconImages" src="{% static 'images/paypal.png' %}">
+                </div>
+                <div class="Icons">
+                    <img class="IconImages" src="{% static 'images/apple_pay.png' %}">
+                </div>
+            </div> -->
+
+        </div>
+    </div>
+
+{% endblock %}

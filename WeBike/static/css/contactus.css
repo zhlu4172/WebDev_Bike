@@ -1,0 +1,107 @@
+body{
+    font-family: "Rajdhani" ,"Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+}
+
+.Container{
+    margin-top: 2%;
+    height:800px;
+    margin-bottom: 5%;
+    margin-inline: 2%;
+}
+
+.Left_Side_Div{
+    /* background-color: rgb(29, 25, 29); */
+    background-color: rgb(28, 47, 64);
+    color: white;
+    float: left;
+    height: 100%;
+    width: 50%;
+    vertical-align: middle;
+    text-align: center;
+}
+
+#Left_Heading{
+    font-size: 60px;
+    color: white;
+    text-align: center;
+}
+
+#Left_Text{
+    text-align: center;
+    font-size: 26px;
+    color: white;
+}
+
+#form{
+    text-align: center;
+}
+
+.Form_Div{
+    align-items: center;
+
+}
+#textField{
+    font-size: 16px;
+    padding-bottom: 1%;
+}
+
+#textFieldLong{
+    font-size: 20px;
+    padding-bottom: 1%;
+    width: 50%;
+}
+
+#label{
+    font-size: 20px;
+}
+
+#submitBtn{
+    font-size: 20px;
+    border-radius: 5px;
+    font-family: Rajdhani;
+}
+
+#submitBtn:hover {
+    background-color: #2DB8C5;
+    color: white;
+}
+
+#input[type=text], select {
+    width: 50%;
+    margin-left: 5%;
+}
+
+.Right_Side_Div{
+    float: right;
+    vertical-align: middle;
+}
+
+.Bike_Image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 5%;   
+}
+
+.Text_Div{
+    display: block;
+}
+.Layer{
+    height: 30%;
+
+    padding-bottom: 1%;
+}
+
+
+.Icon{
+    max-width: 50px;
+    max-height: 50px;
+    float: left;
+    padding-left: 5%;
+    padding-right: 1%;
+}
+
+#Contact_Info{
+    padding-top: 10px;
+    font-size: 20px;
+}

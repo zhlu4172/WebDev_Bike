@@ -1,0 +1,188 @@
+{% extends "../base.html" %}
+{% load static %}
+
+{% block content %}
+    <title>WeBike</title>
+    <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+    <!-- Slide up button -->
+    <button onclick="topFunction()" id="jump_to_top_btn">↑</button>
+
+    <!--Market Place Banner-->
+    <div class="Discover_Banner">
+        <h1 class="Market_tag"> Australia's #1 E-Bike Marketplace </h1>
+        <h3 class="Search_tag"> Search from E-bikes | E-Scooters | E-Uni | Accessories </h3>
+        <!--Dicover Button-->
+        <div class="discover-button-center">
+            <button type="button" class="Discover_Button" onclick="location.href = {% url 'productpage' %}">Discover More</button>
+        </div>
+        <img class="Image">
+        <div onClick="slideDownFunction()" id="slide_down_arrow"></div>
+    </div>
+
+    <!--Explore Banner-->
+    <div class="Explore_Banner">
+        <div class="Buy_Bikes">
+            <h3 class="buy_tag"> <u>Explore</u> E-bikes near you </h3>
+            <h2 class="buy_title">Buy</h2>
+            <button type="button" class="Buy_Button" onclick="location.href = {% url 'productpage' %}">Shop for bikes</button>
+        </div>
+
+        <div class="Rent_Bikes">
+            <h3 class="rent_tag"> <u>Explore</u> a temporary E-bike </h3>
+            <h2 class="rent_title">Rent</h2>
+            <button type="button" class="Rent_Button" onclick="location.href = {% url 'productpage' %}">Rent for bikes</button>
+        </div>
+
+        <div class="Sell_Bikes">
+            <h3 class="sell_tag"> <u>Share</u> E-bikes near you </h3>
+            <h2 class="sell_title">Sell</h2>
+            <button type="button" class="Sell_Button" onclick="location.href = {% url 'productpage' %}">Sell my bikes</button>
+        </div>
+        <img class="Image">
+    </div>
+
+    <!--Scrolling Products-->
+    <div class="Scrolling_Products">
+        <h1 class="Product_Title">Sponsored Products</h1>
+        <!--Products from DB to go here TODO-->
+        <div class="carousel_container">
+            <div class="carousel_container_inner">
+                <div class="track">
+                    <div class="card_container">
+                        <div class="card_product">
+                            <h2 class="card_Product_name">{{product_media.0.Product_ID.Product_name}}</h2>
+                            <button type="button" class="card_button" onclick="location.href = '{% url 'product_info' products.0.Product_ID %}'">Shop now</button>
+                            <img src="" id="image0">
+                        </div>
+                    </div>
+                    <div class="card_container">
+                        <div class="card_product">
+                            <h2 class="card_Product_name">{{product_media.1.Product_ID.Product_name}}</h2>
+                            <button type="button" class="card_button" onclick="location.href = '{% url 'product_info' products.1.Product_ID %}'">Shop now</button>
+                            <img src="" id ="image1">
+                        </div>
+                    </div>
+                    <div class="card_container">
+                        <div class="card_product">
+                            <h2 class="card_Product_name">{{product_media.2.Product_ID.Product_name}}</h2>
+                            <button type="button" class="card_button" onclick="location.href = '{% url 'product_info' products.2.Product_ID %}'">Shop now</button>
+                            <img src="" id ="image2">
+                        </div>
+                    </div>
+                    <div class="card_container">
+                        <div class="card_product">
+                            <h2 class="card_Product_name">{{product_media.3.Product_ID.Product_name}}</h2>
+                            <button type="button" class="card_button" onclick="location.href = '{% url 'product_info' products.3.Product_ID %}'">Shop now</button>
+                            <img src="" id ="image3">
+                        </div>
+                    </div>
+                    <div class="card_container">
+                        <div class="card_product">
+                            <h2 class="card_Product_name">{{product_media.4.Product_ID.Product_name}}</h2>
+                            <button type="button" class="card_button" onclick="location.href = '{% url 'product_info' products.4.Product_ID %}'">Shop now</button>
+                            <img src="" id ="image4">
+                        </div>
+                    </div>
+                    <div class="card_container">
+                        <div class="card_product">
+                            <h2 class="card_Product_name">{{product_media.5.Product_ID.Product_name}}</h2>
+                            <button type="button" class="card_button" onclick="location.href = '{% url 'product_info' products.5.Product_ID %}'">Shop now</button>
+                            <img src="" id ="image5">
+                        </div>
+                    </div>
+                    <div class="card_container">
+                        <div class="card_product">
+                            <h2 class="card_Product_name">{{product_media.6.Product_ID.Product_name}}</h2>
+                            <button type="button" class="card_button" onclick="location.href = '{% url 'product_info' products.6.Product_ID %}'">Shop now</button>
+                            <img src="" id ="image6">
+                        </div>
+                    </div>
+                    <script>
+                        document.getElementById("image0").src = "{{medias.0.Storage_location}}";
+                        document.getElementById("image1").src = "{{medias.1.Storage_location}}";
+                        document.getElementById("image2").src = "{{medias.2.Storage_location}}";
+                        document.getElementById("image3").src = "{{medias.3.Storage_location}}";
+                        document.getElementById("image4").src = "{{medias.4.Storage_location}}";
+                        document.getElementById("image5").src = "{{medias.5.Storage_location}}";
+                        document.getElementById("image6").src = "{{medias.6.Storage_location}}";
+                    </script>
+                </div>
+            </div>
+            <div class="nav">
+                <button onclick = 'shiftLeft()' class="prev">
+                    <span class="material-symbols-outlined">
+                        chevron_left
+                    </span>
+                </button>
+                <button onclick = 'shiftRight()' class="next">
+                    <span class="material-symbols-outlined">
+                        chevron_right
+                    </span>
+                </button>
+            </div>
+        </div>
+    
+    </div>
+
+    <!--Feedback Section-->
+    <div class="Customer_Feedback" id ="Reviews">
+        <h2 class="Feedback_Title"> Our Customer Feedback </h2>
+        <h3 class="Feedback_slogan"> Don't take our word for it. Trust our Customers! </h3>
+
+            <!--Feedback boxes-->
+            <div class=Feedback_boxes>
+                <div class=Feedback1>
+                    <div class="profile1">
+                        <div class="stars-outer">
+                            <div class="stars-inner" id="value0"></div>
+                        </div>
+                    </div>
+                    <h2 class=Reviewer>{{ reviews.0.Reviewer}} </h2>
+                    <p class=Review_Comment>{{ reviews.0.Comment}} </p>
+                </div>
+    
+                <div class=Feedback2>
+                    <div class="profile2">
+                        <div class="stars-outer">
+                            <div class="stars-inner" id="value1"></div>
+                        </div>
+                    </div>
+                    <h2 class=Reviewer>{{ reviews.1.Reviewer}} </h2>
+                    <p class=Review_Comment>{{ reviews.1.Comment}} </p>
+                </div>
+                <div class=Feedback3>
+                    <div class="profile3">
+                        <div class="stars-outer">
+                            <div class="stars-inner" id="value2"></div>
+                        </div>  
+                    </div>
+                    <h2 class=Reviewer>{{ reviews.2.Reviewer}} </h2>
+                    <p class=Review_Comment>{{ reviews.2.Comment}} </p>
+                </div>
+    
+                <div class=Feedback4>
+                    <div class="profile4">
+                        <div class="stars-outer">
+                            <div class="stars-inner" id="value3"></div>
+                        </div>  
+                    </div>
+                    <h2 class=Reviewer>{{ reviews.5.Reviewer}} </h2>
+                    <p class=Review_Comment>{{ reviews.5.Comment}} </p>
+                </div>
+            </div>
+            
+            <script>
+                document.getElementById("value0").style.width = (100 * {{reviews.0.Rating_value}}) / 5 + "%";
+                document.getElementById("value1").style.width = (100 * {{reviews.1.Rating_value}}) / 5 + "%";
+                document.getElementById("value2").style.width = (100 * {{reviews.2.Rating_value}}) / 5 + "%";
+                document.getElementById("value3").style.width = (100 * {{reviews.5.Rating_value}}) / 5 + "%";
+            </script>
+
+     
+    </div>
+    <script src="{% static 'js/homepage.js' %}"></script>
+{% endblock %}
+

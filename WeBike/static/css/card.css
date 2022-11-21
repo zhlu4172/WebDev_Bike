@@ -1,0 +1,24 @@
+.Content{
+    text-align: center;
+    font-family: "Rajdhani" ,"Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+}
+
+.textfield{
+    line-height: 20px;
+}
+
+#PayButton{
+    background-color: #181818;
+    font-family: "Rajdhani" ,"Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+    font-weight: normal;
+    color: white;
+    text-align: center;
+    padding: 5px 32px;
+    border-radius: 8px;
+}
+
+
+
+
+
+

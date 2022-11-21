@@ -1,0 +1,147 @@
+body{
+    font-family: "Rajdhani" ,"Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+    display: block;
+    overflow-x: hidden;
+}
+
+.Heading{
+    text-align: left;
+    padding-left: 5%;
+    width: 100%;
+}
+
+.cart-container{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10%;
+}
+
+.Left_Div{
+    float: left;
+    vertical-align: middle;
+    width: 75%;
+    padding-right: 4%;
+}
+
+#myTable{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#myTable tr{
+    border-bottom: 0.5pt solid rgb(28,47,64); ;
+}
+
+#Totals{
+    width: 100%;
+    background-color: white;
+}
+
+th{
+    text-align: left;
+    padding: 5px;
+    color: white;
+    background-color: black;
+    font-weight: normal;
+}
+
+#TH{
+    text-align: center;
+    padding: 5px;
+    color: white;
+    background-color: rgb(28,47,64);
+    font-weight: normal;
+}
+
+td{
+    padding: 10px 5px;
+    text-align: left;
+}
+
+#element{
+    padding: 10px 5px;
+    text-align: center;
+}
+
+td input{
+    width: 40px;
+    height: 30px;
+    padding: 5px;
+}
+
+td img{
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+}
+
+#image{
+    width: 100px;
+    height: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+
+input[type=number]::-webkit-inner-spin-button {
+    opacity: 1
+}
+
+
+.Right_Div{
+    vertical-align: middle;
+    background-color: rgb(28,47,64);
+    
+}
+
+.Order_Summary{
+    padding: 10px;
+}
+
+.submitButton_Div{
+    padding-top: 15px;
+    text-align: center;
+}
+
+.btn{
+    /* background-color: rgb(45, 184, 197); */
+    background-color: white;
+    border: none;
+    text-align: center;
+    font-size: 18px;
+    padding: 15px;
+    transition: all 0.5s;
+    border-radius: 4px;
+}
+
+.btn:hover{
+    background-color: rgb(45, 184, 197);
+}
+
+.Payment_Icons{
+    align-self: center;
+}
+
+.Icons {
+    float: left;
+    padding: 18px;
+    background-color: white;
+}
+
+.IconImages{
+    max-width: 60px;
+    max-height: 50px;
+}
+
+
+#orderTitle{
+    margin-top: 0;
+    margin-right: 0;
+    margin-left: 0;
+    margin-bottom: 4px;
+    padding: 2px;
+    background-color: white;
+}

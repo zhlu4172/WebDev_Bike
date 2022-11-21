@@ -1,0 +1,114 @@
+{% extends "../Account/userpage.html" %}
+{% load static %}
+{% load custom_tags %}
+
+{% block page_content %}
+    <title>Order History</title>
+    <link rel="stylesheet" href="{% static 'css/orderHistory.css' %}">
+    <script src="{% static 'js/orderHistory.js' %}"></script>
+
+    <!-- The form -->
+    <div class="form-popup" id="myForm">
+        <form method='POST' class="form-container" action = "{% url 'postReview' %}">
+            {% csrf_token %}
+            
+            <div class=review_header>
+                <h2 id="review_heading">How was your experience?</h2>
+                <p id="name_orderNum" class=feedback_details> <strong>Seller Name</strong> &emsp; Order No. 123425364</p>
+            </div>
+            <!--Stars-->
+            <b>
+            <fieldset class="star-rating">
+                <legend class="star-rating__title"></legend>
+                <div class="star-rating__stars">
+                    <input class="star-rating__input" type="radio" name="rating" value="1" id="rating-1" required/>
+                    <label class="star-rating__label" for="rating-1" aria-label="One"></label>
+                    <input class="star-rating__input" type="radio" name="rating" value="2" id="rating-2" required/>
+                    <label class="star-rating__label" for="rating-2" aria-label="Two"></label>
+                    <input class="star-rating__input" type="radio" name="rating" value="3" id="rating-3" required/>
+                    <label class="star-rating__label" for="rating-3" aria-label="Three"></label>
+                    <input class="star-rating__input" type="radio" name="rating" value="4" id="rating-4" required/>
+                    <label class="star-rating__label" for="rating-4" aria-label="Four"></label>
+                    <input class="star-rating__input" type="radio" name="rating" value="5" id="rating-5" required/>
+                    <label class="star-rating__label" for="rating-5" aria-label="Five"></label>
+                    <div class="star-rating__focus"></div>
+                </div>
+                </fieldset>
+
+            <!---->
+            <input type='hidden' name="seller_email" id="suid">
+            <textarea id="review_text" name="comment" rows="10" cols="40" placeholder="Write your review..." required></textarea>
+            <input type="button" class="floated" id="close_form" onclick="closeForm()" value="Close">
+            <input type="submit" class="floated" id="submit_feedback" value="Post">  
+        </form>
+
+    </div>
+
+
+
+
+
+    <div class="header">
+        <h1>Your Order History</h1>
+    </div>
+
+    <div class="header2">
+        <p id="OrderText">Showing Latest Purchase</p>
+        <button id="orderButton" onclick="orderFunction()">Change Order</button>
+    </div>
+
+    <div class="history_table_div">
+        <div id="table_div">
+            <!-- <script>generateHistory()</script> -->
+            <table id="orderTable">
+                <tr>
+                    <th id="TH">Product Image</th>
+                    <th id="TH">Product Name</th>
+                    <th id="TH">Price AUD</th>
+                    <th id="TH">Sold By</th>
+                    <th id="TH">Date</th>
+                    <th id="TH">Transaction Number</th>
+                    <th id="TH">Reviewed</th>        
+                </tr>
+                {% for x in order %} 
+                    <tr>
+                        <td>
+                            {% define_break True as continue %}
+                            {% for img in media %}
+                                {% if continue %}
+                                    {% if img.Product_ID == x.Product_ID %}
+                                        <img src="{{img.Storage_location}}">
+                                        {% define_break False as continue %}
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                        <td id="prod_reference" onclick="location.href='{% url 'product_info' x.Product_ID.Product_ID %}'">{{x.Product_ID.Product_name}}</td>
+                        <td>{{x.Amount}}</td>
+                        <td>{{x.Product_ID.Shop_ID.User_ID.email}}</td>
+                        <td>{{x.Order_date}}</td>
+                        <td>{{x.Order_ID}}</td>
+                        <td>
+                            <button id="review_btn" onclick="openForm(this.parentNode.parentNode)">Review this seller</button>
+
+                            <!-- For loop to check if user has reviewed shop owner -->
+                            {% for r in reviews %}
+                                {% if r.Reviewee == x.Product_ID.Shop_ID.User_ID %}
+                                    <script id="review_script">reviewFormat("{{r.Rating_value}}", "{{x.Order_ID}}")</script>
+                                    <button id="review_btn" onclick="openForm(this.parentNode.parentNode)">Update Review</button>
+                                    
+                                {% endif %}
+        
+                            {% endfor %}
+                        </td>
+
+                    </tr>
+
+                {% endfor %}
+
+            </table>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

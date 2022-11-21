@@ -1,0 +1,164 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" type="image/png" href="{% static '/images/favicon.ico' %}"/>
+</head>
+
+<body>
+    <!--Navigation Bar-->
+    <div class="topnav">
+        <a class="webike_logo" href="{% url "homepage" %}"></a>
+        <!-- desktop version -->
+        <div class="topnav_left">
+            <a href="{% url "productpage" %}">E-Bikes</a>
+            <a href="{% url "blog_page" %}">Bike Blog</a>
+            <a href="{% url "about_us" %}">About</a>
+            <a href="{% url "contact_us" %}">Contact us</a>
+        </div>
+        <div class="topnav_right">
+{#            <a class="country_au_logo" href=""></a>#}
+            <a class="user_logo" href="{% url "userpage" %}"></a>
+            <a class="cart_logo" href="{% url "paymentpage" %}"></a>
+            <a class="search_logo" onclick="openNav()" href="javascript:"></a>
+            {% comment %} <a href="{% url "register" %}">Register</a>
+            <a href="{% url "login" %}">Login</a> {% endcomment %}
+            {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}">Log Out</a>
+            {% else %}
+                <a href="{% url "register" %}">Register</a>
+                <a href="{% url "login" %}">Login</a>
+            {% endif %}
+            <a href="javascript:" onclick="document.getElementById('id01').style.display='block'">
+                <img class="select_location_img">
+                <span id="select_location" class="select_location">Select Location</span>
+            </a>
+        </div>
+        <!-- mobile version-->
+        <button class="mobile_menu_button" onclick="menuSwitch()">Menu</button>
+        <div class="mobile_menu" style="display: none">
+            <a href="{% url "productpage" %}">Shop</a>
+            <a href="{% url "blog_page" %}">Blog</a>
+            <a href="{% url "about_us" %}">About</a>
+            <a href="{% url "contact_us" %}">Contact us</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}">Log Out</a>
+            {% else %}
+                <a href="{% url "login" %}">Login</a>
+                <a href="{% url "register" %}">Register</a>
+            {% endif %}
+            {% comment %} <a href="{% url "login" %}">Login</a>
+            <a href="{% url "register" %}">Register</a> {% endcomment %}
+            <a class="search_logo" onclick="openNav()"></a>
+            <a class="cart_logo" href="{% url "paymentpage" %}"></a>
+            <a class="user_logo" href="{% url "userpage" %}"></a>
+            <a href="javascript:" onclick="document.getElementById('id01').style.display='block'">
+                <img class="select_location_img">
+            </a>
+{#            <a class="country_au_logo" href=""></a>#}
+        </div>
+    </div>
+    <!--Search Menu-->
+    <div class="search_menu">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div style="text-align: center; top:200px; position: relative;">
+            <input id="search_menu_input" class="search_menu_input" type="text" placeholder="Type to search">
+            <button onclick="search()">Search</button>
+            <br><br>
+            <span class="check_container" style="margin-right: 28%;">Search for bikes, blogs and everything else ...</span>
+            <label class="check_container">
+                <input id="bikeCheck" type="checkbox">
+                <span class="checkmark">E-Bikes</span>
+            </label>
+            <label class="check_container">
+                <input id="blogCheck" type="checkbox">
+                <span class="checkmark">Blogs</span>
+            </label>
+{#            <label class="check_container">#}
+{#                <input id="" type="checkbox">#}
+{#                <span class="checkmark">All Contents</span>#}
+{#            </label>#}
+        </div>
+    </div>
+    <!--Location Menu-->
+    <div id="id01" class="location_menu">
+        <form class="location_content animate">
+            <span onclick="document.getElementById('id01').style.display='none'"
+            class="close" title="Close Location Menu">&times;</span>
+            <header>
+                <h4>Choose your Location</h4>
+            </header>
+            <div class="location_content_container">
+                <button type="button" id="auto_getLocation" onclick="getLocation()">Use Your Current Location</button>
+            </div>
+            <div class="location_content_container">
+                Or enter an address in Australia
+            </div>
+            <div class="location_content_container">
+                <input id="pac-input" type="text" placeholder="Enter the address...">
+            </div>
+            <div id="map"></div>
+            <div class="location_content_container">
+                <button type="button" onclick="closeLocationMenu()" class="cancelbtn">Apply</button>
+            </div>
+        </form>
+        <script>
+            // Get the modal
+            var modal = document.getElementById('id01');
+            // When the user clicks anywhere outside the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        </script>
+     </div>
+
+
+
+    <!--information-->
+    <div>
+        {% block content %}{% endblock %}
+    </div>
+
+
+
+    <!--Footer-->
+    <div class="footer">
+        <div class="footer_top">
+            <a href="{% url "about_us" %}" style="float: left">About Us</a>
+            <a href="">Explore</a>
+            <a href="" style="float: right">Customer Service</a>
+        </div>
+        <div class="footer_bottom">
+            <a class="webike_logo" href="{% url 'homepage' %}"></a>
+            <div class="footer_bottom_right">
+                <p>Follow us</p>
+                <a class="twitter_logo" href=""></a>
+                <a class="facebook_logo" href=""></a>
+                <a class="insta_logo" href=""></a>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'js/base.js' %}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnBrBjdYaU3Za9vX2IQJOZsAPc800qy-s&libraries=places&callback=initAutocomplete&v=weekly" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        function search() {
+            var bikeCheck = document.getElementById("bikeCheck");
+            var blogCheck = document.getElementById("blogCheck");
+            var searchContent = document.getElementById("search_menu_input").value;
+            if (!bikeCheck.checked && blogCheck.checked) {
+                window.location.href = "{% url 'blog_page' %}";
+            } else {
+                window.location.href = "{% url 'productpage' %}";
+                localStorage.setItem("searchContent", searchContent);
+            }
+        }
+    </script>
+</body>
+</html>

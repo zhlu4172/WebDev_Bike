@@ -1,0 +1,104 @@
+{% extends "../base.html" %}
+{% load static %}
+{% load custom_tags %}
+
+{% block content %}
+
+    <title>Payment</title>
+    <link rel="stylesheet" href="{% static 'css/payment.css' %}">
+
+    <div class ="container">
+        <div class="Left_Product">
+            <h1 id = "Left_Heading">Your Cart</h1>
+            <div class="cart">
+                <p id="empty_cart" style="display: none; text-align: center">No Items in Cart</p>
+                {% for c in cart %}
+                <div class ="Cart_Item">
+                    <button onclick="location.href='{% url 'remove_cart' c.Cart_ID %}'" class="remove">Remove</button>
+                    <div style="cursor: pointer; float: left" onclick="location.href='{% url 'product_info' c.Product_ID.Product_ID %}'">
+                        {% define_break True as continue %}
+                        {% for img in media %}
+                            {% if continue %}
+                                {% if img.Product_ID == c.Product_ID %}
+                                    <img class="product" src="{{img.Storage_location}}">
+                                    {% define_break False as continue %}
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                        <div class = "description">
+                            <h2 class="title">{{ c.Product_ID.Product_name }}</h2>
+                            {% if c.Buy_Or_Rent %}
+                                <h3 class="price">Price: ${{ c.Product_ID.Sell_Price }}</h3>
+                            {% else %}
+                                <h3 class="price">Deposit: ${{ c.Product_ID.Rent_Price }}</h3>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+            <hr class = "line">
+            <div class ="subtotal">
+                <h2 class="total">Subtotal</h2>
+                <h2 class="money"></h2>
+            </div>
+        </div>
+
+        <div class = "Right_Input">
+            <h1 id = "Right_Heading">Enter your details Here:</h1>
+                <div class = "Personal_Form">
+                    <form id = "form" method="POST">
+                        {% csrf_token %}
+                        <p id="Right_Heading_Sub">Personal Information</p>
+
+                        <div class = "form_detail">
+                            <label id = "label" for = "fname">First name:</label>
+                            <label id = "label" class = "last_name" for = "lname">Last name:</label><br>
+                        </div>
+
+                        <div class ="form_detail">
+                            <input type = "text" id = "fname" class = "textfield" name = "fname" placeholder="John" onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))' required>
+                            <input type = "text" id = "lname" class = "last_name_field" name = "lname" placeholder="Smith" onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))' required>
+                        <br>
+                        </div>
+
+                        <br>
+                        <label id="label" for = "Email">Email:</label><br>
+                        <input type="text" id="Email" class = "textfield" name="Email" size="57" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[a-z]{2,}$" placeholder="xxx@gmail.com" required><br><br>
+
+                        <label id="label" for = "Phone">Mobile Phone:</label><br>
+                        <input type="text" id = "Phone" class = "textfield" name = "Phone" size = "57" pattern="[0-9]{9}" placeholder="401123456" required><br><br>
+
+
+                        <p id="Right_Heading_Sub">Address</p>
+                        <label id="label" for="Address">Address:</label><br>
+                        <input type="text" id="Address" class = "textfield" name="Address" size ="57" required><br><br>
+
+{#                        <label id="label" for="Address2">Address line 2:</label><br>#}
+{#                        <input type="text" id="Address" class = "textfield" name = "Address2" size = "57"><br><br>#}
+
+                         <div class ="form_detail">
+                             <label id="label" for="City">Suburb:</label>
+                             <label id="label" class="state" for="State">State:</label>
+                             <label id="label" class="zip_code" for="Zip">ZIP Code:</label><br>
+                        </div>
+
+                        <div class ="form_detail">
+                            <input type="text" id="City" class = "textfield" name="City" size="13" placeholder="Camperdown" onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))' required>
+                            <input type="text" id="State" class="state_field" name="State" size="10" placeholder="NSW" pattern="[A-Za-z]{,3}" required>
+                            <input type="text" id="Zip" class="zip_code_field" name="Zip" size="10" placeholder="2006" pattern="[0-9]{4}" required><br><br>
+                        </div>
+
+
+                        <p id="Pay">We only support card payment.</p>
+
+                        <input id = "PayButton" type = "submit" value = "Pay">
+                        <br><br>
+                    </form>
+            </div>
+        </div>
+
+    <script src="{% static 'js/payment.js' %}"></script>
+    </div>
+
+{% endblock %}

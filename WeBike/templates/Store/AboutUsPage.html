@@ -1,0 +1,54 @@
+{% extends "../base.html" %}
+{% load static %}
+
+{% block content %}
+
+    <title>About Us</title>
+    <link rel="stylesheet" href="{% static 'css/aboutus.css' %}">
+
+    <div class="Our_Goal_Div"; style="background-color: rgb(29, 25,29);">
+            <div class="Our_Goal_Text_Div">
+                <h1 class="Goal_Heading">Our Goal</h1>
+                <p class="Goal_Text" style="color:white">To foster a community around the emerging e-bike
+                    industry in all the main cities within Australia.</p>
+            </div>
+
+            <div class="Our_Goal_Image_Div">
+
+                <img class="Bike_Garage" src="{% static 'images/Bike_Garage.jpg' %}">
+            </div>
+        </div>
+
+    <div class="Rafas_Story_Div">
+
+            <h1 class="Rafas_Story">Rafa's Story</h1>
+            <div class="First_Paragraph_And_Image_Div">
+
+                <div class="Rafas_Story_Text_Div1">
+                    <p class="Rafas_Story_first_paragraph">Having lost his job working at a resuturant during the pandemic, Rafael started selling and
+                        fixing bikes with his dad in order to maintain a source of income. Being an international student
+                        himself, Rafael understood the troubles of navigating an unfamiliar area and the cost that would come with it.</p>
+                </div>
+
+                <div class="Rafas_Story_Image_Div">
+                    <img class="Wall_Art_Bike" src="{% static 'images/Wall_Art_Bike.jpg' %}">
+                </div>
+            </div>
+
+            <div class="Rafas_Story_Second_Paragraph_Div">
+
+                <div class="Rafas_Story_Text_Div">
+                    <p class="Rafas_Story_Second_Paragraph">It was during this time that Rafael realised the potential of a marketplace platform to buy, sell
+                        and rent e-bikes, to foster an e-bike community that would allow visitors and locals to travel in a
+                        cheap, easy and fun way. <br>
+
+                        Just like all good startups, WeBike began in his garage, and ever since then Rafael has been committed
+                        to turning his dream into a reality.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+{% endblock %}
+

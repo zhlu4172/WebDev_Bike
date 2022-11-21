@@ -1,0 +1,217 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700&display=swap');
+@import url("http://fonts.googleapis.com/css?family=Roboto");
+@import "http://fonts.googleapis.com/css?family=Roboto";
+@import "https://fonts.googleapis.com/css?family=Inter";
+@import "https://fonts.googleapis.com/css?family=Rajdhani";
+@import "//fonts.googleapis.com/css?family=Signika";
+
+.login-title h1 {
+  text-align: center;
+  font-family: 'Raleway';
+  font-size: 350%;
+  color: #224267;
+  font-weight: 400;
+  line-height: 120px;
+}
+.body {
+  font-family: "Rajdhani" ,"Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+}
+
+input[type=login] {
+  width: 25%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  background-color: #224267;
+  border-radius: 9px;
+  color: white;
+  position:static;
+  line-height: 50px;
+}
+.form-center.password-1 {
+  font-family: "Rajdhani" ,"Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+  letter-spacing: 0.5ch;
+  font-size: 24px;
+}
+
+input[type=password] {
+  width: 25%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  background-color: #224267;
+  border-radius: 9px;
+  color: white;
+  position:static;
+  line-height: 50px;
+  font-family: "Rajdhani" ,"Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+}
+
+input[type=email] {
+  width: 25%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  background-color: #224267;
+  border-radius: 9px;
+  color: white;
+  position: static;
+  line-height: 50px;
+  font-family: "Rajdhani" ,"Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+  /* letter-spacing: 1.5ch; */
+  /* font-size: 30px; */
+  /* @belinda uncomment these and see the result what is this??? */
+}
+input[type=text] {
+  width: 25%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  background-color: #224267;
+  border-radius: 9px;
+  color: white;
+  position:static;
+  line-height: 50px;
+  font-family: "Rajdhani" ,"Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+  /* letter-spacing: 1.5ch;
+  font-size: 30px; */
+}
+
+input[type=submit] {
+  width: 25%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  background-color: #4993E4;
+  border-radius: 9px;
+  color: white;
+  position:static;
+  margin-top: 30px;
+  line-height: 40px;
+  filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3));
+}
+
+.success-anchor {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  background-color: #4993E4;
+  border-radius: 9px;
+  color: white;
+  position:static;
+  filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3));
+  font-size: 50px;
+  text-decoration: none;
+  font-weight: lighter;
+}
+
+/*button:hover {*/
+/*  background-color: #2DB8C5; !* Green *!*/
+/*  cursor: pointer;*/
+/*}*/
+
+.container {
+  text-align: left;
+}
+
+.material-icons {
+  cursor: pointer;
+  padding-left: -60px;
+  position: absolute;
+  color: #224267;
+  padding-top: 30px;
+  padding-left: 10px;
+}
+
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  font-family: "Rajdhani" ,"Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+  opacity: 1; /* Firefox */
+}
+
+.form-center {
+  justify-content: center;
+  position:relative;
+  text-align: center;
+  font-family: "Rajdhani" ,"Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+}
+
+/*.form-center.a {*/
+/*  text-decoration: none;*/
+/*  color: blue;*/
+/*}*/
+
+
+.signup_box {
+  box-shadow: 0 4px 8px 0 black;
+}
+
+.clickable {
+  text-decoration: none;
+  color: mediumblue;
+}
+
+.fb_img {
+  max-height: 50px;
+
+}
+
+.clickable:hover {
+  text-decoration: underline;
+}
+
+.form{
+  width: 425px;
+  height: auto;
+  background: #fff;
+  padding: 35px 50px;
+  border-radius: 2px;
+  position: relative;
+}
+
+.hill{
+  width:100%;
+  position:relative;
+  padding-top: 100px;
+}
+
+
+
+button[type=submit] {
+  transition-duration: 0.4s;
+    /* Green */
+  cursor: pointer;
+  width: 25%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  background-color: #4993E4;
+  border-radius: 9px;
+  color: white;
+  position: static;
+  margin-top: 30px;
+  line-height: 40px;
+  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.3));
+  font-family: "Rajdhani" ,"Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+  
+}
+
+
+
+.divFooter {
+  background:url(imagepath);
+  /* float: center;  according to ur requirement */
+  width: 100%;
+  height: 0px;
+  bottom: 0;
+}
